@@ -53,5 +53,12 @@ if (process.env.NODE_ENV === 'production') {
 }
 
 app.listen(PORT, () => {
-  console.log(`Server listening on ${PORT}`);
+  console.log(
+    `Server listening on ${PORT} path : ${path.join(
+      __dirname,
+      '/../client',
+      'build',
+      'index.html'
+    )}`
+  );
 });
