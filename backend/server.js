@@ -21,6 +21,8 @@ const server = new ApolloServer({
   context: { Client, Influencer }
 });
 
+const PORT = process.env.PORT || 4444;
+
 // connect to database
 mongoose
   .connect(process.env.MONGO_URI, {
@@ -35,8 +37,6 @@ mongoose.set('useCreateIndex', true);
 const app = express();
 server.applyMiddleware({ app });
 
-const PORT = process.env.PORT || 4444;
-
 const corsOptions = {
   origin: 'http://localhost:3000',
   credentials: true
@@ -45,7 +45,7 @@ const corsOptions = {
 app.use(cors(corsOptions));
 
 if (process.env.NODE_ENV === 'production') {
-  app.use(express.static('client/build'));
+  app.use(express.static('../client/build'));
 
   app.get('*', (req, res) => {
     res.sendFile(path.join(__dirname, '/../client', 'build', 'index.html'));
