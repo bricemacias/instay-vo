@@ -1,7 +1,7 @@
 import React from 'react';
 
 import { Query } from 'react-apollo';
-import { GET_ALL_RECIPES } from '../graphql/queries';
+import { GET_ALL_RECIPES } from '../graphql/queries/index';
 
 const Test = () => {
   return (

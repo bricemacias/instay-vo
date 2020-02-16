@@ -41,7 +41,7 @@ const DashboardSide = () => {
             </div>
             <div className="user-nav__icon-box">
               <svg className="user-nav__icon">
-                <use xlinkHref={`${icons}#icon-bubbles2`} />
+                <use xlinkHref={`${icons}#icon-chat`} />
               </svg>
               <span className="user-nav__notification">13</span>
             </div>
