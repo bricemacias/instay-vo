@@ -7,12 +7,10 @@
   "author": "Brice Mvf <bricemacias@hotmail.com>",
   "scripts": {
     "start": "cd backend && node main.js",
-    "installclient": "cd client && yarn install",
-    "build": "cd client && npm build",
     "server": "cd backend && nodemon main.js",
     "client": "cd client && yarn start",
     "dev": "concurrently --names \"server,client\" \"yarn run server --silent\" \"yarn run client --silent\"",
-    "heroku-postbuild": "yarn run installclient && yarn run build"
+    "heroku-postbuild": "cd client && yarn install && yarn run build"
   },
   "engines": {
     "node": "12.4.0",
