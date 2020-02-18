@@ -4,21 +4,19 @@ import dotenv from 'dotenv';
 import path from 'path';
 dotenv.config({ path: 'variables.env' });
 
-import Client from './models/Client';
-import Influencer from './models/Influencer';
+import models from './models';
 
 import cors from 'cors';
 
-import { typeDefs } from './schema';
-
-import { resolvers } from './resolvers';
+import schema from './schema';
+import resolvers from './resolvers';
 
 // create server and connect schemas with GraphQl
 import { ApolloServer } from 'apollo-server-express';
 const server = new ApolloServer({
-  typeDefs,
+  typeDefs: schema,
   resolvers,
-  context: { Client, Influencer }
+  context: models
 });
 
 const PORT = process.env.PORT || 4444;
@@ -53,12 +51,5 @@ if (process.env.NODE_ENV === 'production') {
 }
 
 app.listen(PORT, () => {
-  console.log(
-    `Server listening on ${PORT} path : ${path.join(
-      __dirname,
-      '/../client',
-      'build',
-      'index.html'
-    )}`
-  );
+  console.log(`Server listening on ${PORT}`);
 });
