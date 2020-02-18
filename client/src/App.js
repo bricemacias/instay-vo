@@ -5,6 +5,9 @@ import './styles/css/style.css';
 
 import DashboardSelector from './Dashboards/DashboardSelector';
 
+import { Query } from 'react-apollo';
+import { GET_ALL_RECIPES } from './graphql/queries/index';
+
 const App = () => {
   const [theme, setTheme] = useState('dark');
 
@@ -23,6 +26,14 @@ const App = () => {
         <div>
           <DashboardSelector theme={theme} />
         </div>
+        <Query query={GET_ALL_RECIPES}>
+          {(data, loading, error) => {
+            if (loading) return <div>Loading</div>;
+            if (error) return <div>Error</div>;
+            console.log(data);
+            return null;
+          }}
+        </Query>
       </div>
     </>
   );
