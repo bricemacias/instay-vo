@@ -35,6 +35,8 @@ const InfluencerSchema = gql`
     ): Influencer
 
     signupInfluencer(
+      firstName: String!
+      lastName: String!
       username: String!
       instagram: String!
       email: String!

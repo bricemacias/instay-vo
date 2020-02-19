@@ -8,7 +8,7 @@
   "scripts": {
     "start": "cd backend && node main.js",
     "server": "cd backend && nodemon main.js",
-    "client": "cd client && yarn start",
+    "client": "cd client && yarn startdev",
     "dev": "concurrently --names \"server,client\" \"yarn run server --silent\" \"yarn run client --silent\"",
     "heroku-postbuild": "cd client && yarn install && yarn run build"
   },

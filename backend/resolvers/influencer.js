@@ -28,7 +28,7 @@ const Mutation = {
 
   signupInfluencer: async (
     root,
-    { username, email, password, instagram },
+    { firstName, lastName, username, email, password, instagram },
     { Influencer }
   ) => {
     const influencer = await Influencer.findOne({ username: username });
@@ -37,6 +37,8 @@ const Mutation = {
     }
 
     const newInfluencer = await new Influencer({
+      firstName,
+      lastName,
       username,
       email,
       password,
