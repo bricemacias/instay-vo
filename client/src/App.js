@@ -18,11 +18,11 @@ const App = () => {
   return (
     <>
       <div style={{ display: 'flex', flexDirection: 'column' }}>
-        <div className="button-theme">
+        {/* <div className="button-theme">
           <Button variant="contained" color="secondary" onClick={changetheme}>
             Change Theme
           </Button>
-        </div>
+        </div> */}
         <div>
           <DashboardSelector theme={theme} />
         </div>
