@@ -19,6 +19,8 @@ const InfluencerSchema = gql`
 
   extend type Query {
     getAllInfluencers: [Influencer]!
+
+    getCurrentInfluencer: Influencer
   }
 
   # Mutations

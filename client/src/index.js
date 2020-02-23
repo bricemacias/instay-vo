@@ -5,6 +5,8 @@ import * as serviceWorker from './serviceWorker';
 
 import Routes from './Routes/Routes';
 
+import withSession from './components/utils/withSession';
+
 import ApolloClient from 'apollo-boost';
 import { ApolloProvider } from 'react-apollo';
 
@@ -34,9 +36,11 @@ const client = new ApolloClient({
   }
 });
 
+const RouteWithSession = withSession(Routes);
+
 ReactDOM.render(
   <ApolloProvider client={client}>
-    <Routes />
+    <RouteWithSession />
   </ApolloProvider>,
   document.getElementById('root')
 );

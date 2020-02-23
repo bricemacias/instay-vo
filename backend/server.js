@@ -68,16 +68,20 @@ const server = new ApolloServer({
   typeDefs: schema,
   resolvers,
   context: async ({ req }) => {
-    const token = req.headers['authorization'];
+    const token = await req.headers.authorization;
+    let authUser;
     if (token !== 'null') {
       try {
         const currentUser = await jwt.verify(token, process.env.SECRET);
-        req.currentUser = currentUser;
+
+        if (currentUser) {
+          authUser = currentUser;
+        }
       } catch (err) {
         console.error(err);
       }
     }
-    return Object.assign({ currentUser }, models);
+    return Object.assign({ authUser }, models);
   }
 });
 

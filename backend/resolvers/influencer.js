@@ -6,6 +6,22 @@ const Query = {
     const allInfluencers = await Influencer.find();
 
     return allInfluencers;
+  },
+
+  getCurrentInfluencer: async (root, args, { authUser, Influencer }) => {
+    if (!authUser) {
+      return null;
+    }
+
+    const influencer = await Influencer.findOne({
+      username: authUser.username
+    });
+    // .populate({
+    //   path: 'favorite',
+    //   model: 'Recipe'
+    // });
+
+    return influencer;
   }
 };
 
