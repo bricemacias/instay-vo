@@ -7,10 +7,14 @@
   --color-secondary-light: #ff3366;
   --color-secondary-dark: #ba265d;
 
+  --color-tertiary: #784af4;
+
   --color-grey-light-1: #faf9f9;
   --color-grey-light-2: #f4f2f2;
   --color-grey-light-3: #f0eeee;
   --color-grey-light-4: #ccc;
+
+  --color-grey-light-bis: #eaeaf0;
 
   --color-grey-dark-1: #333;
   --color-grey-dark-2: #777;
@@ -27,6 +31,7 @@ $bp-800: 50em; // 800px
 $bp-716: 44.75em; // 716px
 $bp-small: 37.5em; // 600px
 $bp-smallest: 31.25em; //500px
+$bp-400: 25em; // 400px
 $bp-292: 18.25px; //292px
 
 * {
@@ -53,6 +58,7 @@ html {
 }
 
 body {
+  margin: 0;
   font-weight: 400;
   line-height: 1.6;
   color: var(--color-grey-dark-2);
@@ -62,10 +68,11 @@ body {
     var(--color-primary)
   );
   background-size: cover;
-  height: 100vh;
+  background-attachment: fixed;
+  //height: 100vh;
   background-repeat: no-repeat;
 
-  @media only screen and (min-width: $bp-largest) {
-    height: 100vh;
-  }
+  // @media only screen and (min-width: $bp-largest) {
+  //   height: 100vh;
+  // }
 }

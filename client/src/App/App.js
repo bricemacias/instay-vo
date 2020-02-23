@@ -1,12 +1,12 @@
 import React, { useState } from 'react';
 import Button from '@material-ui/core/Button';
-import './App.css';
-import './styles/css/style.css';
+import '../App.css';
+import '../styles/css/style.css';
 
-import DashboardSelector from './Dashboards/DashboardSelector';
+import DashboardSelector from '../Dashboards/DashboardSelector';
 
 import { Query } from 'react-apollo';
-import { GET_ALL_RECIPES } from './graphql/queries/index';
+import { GET_ALL_INFLUENCERS } from '../graphql/queries/influencer';
 
 const App = () => {
   const [theme, setTheme] = useState('dark');
@@ -26,7 +26,7 @@ const App = () => {
         <div>
           <DashboardSelector theme={theme} />
         </div>
-        <Query query={GET_ALL_RECIPES}>
+        <Query query={GET_ALL_INFLUENCERS}>
           {(data, loading, error) => {
             if (loading) return <div>Loading</div>;
             if (error) return <div>Error</div>;

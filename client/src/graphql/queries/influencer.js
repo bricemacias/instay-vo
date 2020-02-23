@@ -1,6 +1,6 @@
 import { gql } from 'apollo-boost';
 
-export const GET_ALL_RECIPES = gql`
+export const GET_ALL_INFLUENCERS = gql`
   query {
     getAllInfluencers {
       firstName

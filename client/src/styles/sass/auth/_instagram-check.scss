@@ -1,0 +1,46 @@
+.instagram-input {
+  width: 40%;
+  margin-bottom: 1rem;
+  margin-left: 1rem;
+  display: flex;
+  align-content: center;
+  justify-content: center;
+  justify-items: center;
+  align-items: center;
+
+  @media only screen and (max-width: $bp-smallest) {
+    width: 55%;
+  }
+  @media only screen and (max-width: $bp-400) {
+    width: 70%;
+  }
+}
+
+.instagram-title {
+  color: var(--color-primary-dark);
+  font-weight: 400;
+  font-size: 3rem;
+  letter-spacing: 0.5rem;
+  margin: 4rem auto 1rem;
+
+  @media only screen and (max-width: $bp-smallest) {
+    margin: -15rem auto 1rem;
+  }
+}
+
+.info-button {
+  margin-left: 0.3rem;
+}
+
+.verification-text {
+  text-align: center;
+  width: 80%;
+  margin: 2rem auto 2rem;
+}
+
+.verification-text-subtitle {
+  text-align: center;
+  width: 70%;
+  color: var(--color-grey-light-4);
+  margin: 0 auto 3rem;
+}
