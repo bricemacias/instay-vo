@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { withRouter } from 'react-router-dom';
 import TextField from '@material-ui/core/TextField';
 import Checkbox from '@material-ui/core/Checkbox';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
@@ -20,7 +21,7 @@ const theme = createMuiTheme({
   }
 });
 
-const SignupInfluencer = ({ instagramAccount }) => {
+const SignupInfluencer = props => {
   const [firstName, setFirstName] = useState('');
   const [lastName, setLastName] = useState('');
   const [username, setUsername] = useState('');
@@ -47,13 +48,15 @@ const SignupInfluencer = ({ instagramAccount }) => {
         lastName: lastName,
         username: username,
         email: email,
-        instagram: instagramAccount,
+        instagram: props.instagramAccount,
         password: password
       }
-    }).then(data => {
+    }).then(async ({ data }) => {
       console.log(data);
       localStorage.setItem('token', data.signupInfluencer.token);
+      await props.refetch;
       clearState();
+      props.history.push('/');
     });
   };
 
@@ -176,4 +179,4 @@ const SignupInfluencer = ({ instagramAccount }) => {
   );
 };
 
-export default SignupInfluencer;
+export default withRouter(SignupInfluencer);

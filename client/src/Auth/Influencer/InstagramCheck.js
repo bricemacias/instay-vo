@@ -22,6 +22,8 @@ const theme = createMuiTheme({
 const InstagramCheck = props => {
   const [instagram, setInstagram] = useState('');
   const [disabled, setDisabled] = useState(false);
+  const [infoText, setInfoText] = useState('');
+  const [followers, setFollowers] = useState('');
 
   const handleCheck = async () => {
     var url = `https://www.instagram.com/${instagram}/?__a=1`;
@@ -33,23 +35,28 @@ const InstagramCheck = props => {
           if (response.data.graphql.user) {
             if (response.data.graphql.user.edge_followed_by.count >= 5000) {
               await props.handleNext(instagram);
-              setDisabled(false);
+              //setDisabled(false);
             } else {
               setDisabled(false);
-              console.log(`Sorry, you don't have enough followers to apply`);
+              setInfoText(`Sorry, you don't have enough followers to apply`);
+              setFollowers(
+                `You currently have ${response.data.graphql.user.edge_followed_by.count} followers, you need at least 5000 to apply`
+              );
             }
-            console.log(response.data.graphql.user.edge_followed_by.count);
           } else {
-            console.log('No user found');
+            setFollowers('');
+            setInfoText('No user found');
             setDisabled(false);
           }
         } else {
-          console.log('No user found');
+          setFollowers('');
+          setInfoText('No user found');
           setDisabled(false);
         }
       })
       .catch(err => {
-        console.log('No user found');
+        setFollowers('');
+        setInfoText('No user found');
         setDisabled(false);
       });
     //.finally(setDisabled(false));
@@ -99,6 +106,8 @@ const InstagramCheck = props => {
           </Tooltip>
         </div>
 
+        <Typography color="secondary">{infoText}</Typography>
+        <Typography color="primary">{followers}</Typography>
         <div className="verification-text">
           <Typography>
             We verify your followers' number, your engagement rate and your

@@ -6,10 +6,10 @@ import { GET_CURRENT_INFLUENCER } from '../../graphql/queries/influencer';
 
 const withSession = Component => props => (
   <Query query={GET_CURRENT_INFLUENCER}>
-    {({ data, loading }) => {
+    {({ data, loading, refetch }) => {
       if (loading) return null;
       console.log(data);
-      return <Component {...props} />;
+      return <Component {...props} refetch={refetch} />;
     }}
   </Query>
 );
