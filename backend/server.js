@@ -40,6 +40,16 @@ const corsOptions = {
   credentials: true
 };
 
+app.head('/graphql', (req, res) => {
+  res.header('Access-Control-Allow-Origin', 'http://localhost:3000');
+  res.header('Access-Control-Request-Method', 'GET, POST');
+  res.header(
+    'Access-Control-Allow-Headers',
+    'Origin, Accept, Content-Type, Content-Length'
+  );
+  res.end();
+});
+
 app.use(cors(corsOptions));
 
 if (process.env.NODE_ENV === 'production') {

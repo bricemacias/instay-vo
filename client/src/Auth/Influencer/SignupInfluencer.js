@@ -18,7 +18,7 @@ const theme = createMuiTheme({
   }
 });
 
-const SignupInfluencer = () => {
+const SignupInfluencer = ({ instagramAccount }) => {
   const [firstName, setFirstName] = useState('');
   const [lastName, setLastName] = useState('');
   const [username, setUsername] = useState('');
@@ -27,6 +27,21 @@ const SignupInfluencer = () => {
   const [confirm, setConfirm] = useState('');
   const [agree, setAgree] = useState(false);
 
+  const handleSubmit = (e, signupInfluencer) => {
+    e.preventDefault();
+    signupInfluencer({
+      variables: {
+        firstName: firstName,
+        lastName: lastName,
+        username: username,
+        email: email,
+        instagram: instagramAccount,
+        password: password
+      }
+    }).then(data => {
+      console.log(data);
+    });
+  };
   return (
     <ThemeProvider theme={theme}>
       <div className="signup-container">
@@ -35,7 +50,7 @@ const SignupInfluencer = () => {
           Please complete to create your account
         </h3>
         <Mutation mutation={SIGNUP_INFLUENCER}>
-          {() => {
+          {(signupInfluencer, { data, loading, error }) => {
             return (
               <form className="signup-grid">
                 <div className="first-name">
@@ -111,7 +126,12 @@ const SignupInfluencer = () => {
                   />
                 </div>
                 <div className="apply">
-                  <Button type="submit" variant="contained" color="secondary">
+                  <Button
+                    type="submit"
+                    variant="contained"
+                    color="secondary"
+                    onClick={e => handleSubmit(e, signupInfluencer)}
+                  >
                     SIGN UP
                   </Button>
                 </div>

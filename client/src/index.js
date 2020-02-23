@@ -10,6 +10,7 @@ import { ApolloProvider } from 'react-apollo';
 
 const client = new ApolloClient({
   uri: 'https://instay-v0.herokuapp.com/graphql'
+  //uri: 'http://localhost:4444/graphql'
 });
 
 ReactDOM.render(

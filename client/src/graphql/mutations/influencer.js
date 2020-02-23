@@ -5,7 +5,7 @@ export const SIGNUP_INFLUENCER = gql`
     $firstName: String!
     $lastName: String!
     $username: String!
-    $instagram: String
+    $instagram: String!
     $email: String!
     $password: String!
   ) {
