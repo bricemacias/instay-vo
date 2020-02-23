@@ -5,6 +5,8 @@ import FormControlLabel from '@material-ui/core/FormControlLabel';
 import Button from '@material-ui/core/Button';
 import { ThemeProvider, createMuiTheme } from '@material-ui/core/styles';
 
+import Error from '../../components/Error';
+
 import { Mutation } from 'react-apollo';
 
 import { SIGNUP_INFLUENCER } from '../../graphql/mutations/influencer';
@@ -27,6 +29,16 @@ const SignupInfluencer = ({ instagramAccount }) => {
   const [confirm, setConfirm] = useState('');
   const [agree, setAgree] = useState(false);
 
+  const clearState = () => {
+    setFirstName('');
+    setLastName('');
+    setUsername('');
+    setEmail('');
+    setPassword('');
+    setConfirm('');
+    setAgree('');
+  };
+
   const handleSubmit = (e, signupInfluencer) => {
     e.preventDefault();
     signupInfluencer({
@@ -40,8 +52,23 @@ const SignupInfluencer = ({ instagramAccount }) => {
       }
     }).then(data => {
       console.log(data);
+      clearState();
     });
   };
+
+  const validateForm = () => {
+    const isInvalid =
+      !firstName ||
+      !lastName ||
+      !username ||
+      !email ||
+      !password ||
+      password !== confirm ||
+      !agree;
+
+    return isInvalid;
+  };
+
   return (
     <ThemeProvider theme={theme}>
       <div className="signup-container">
@@ -131,9 +158,13 @@ const SignupInfluencer = ({ instagramAccount }) => {
                     variant="contained"
                     color="secondary"
                     onClick={e => handleSubmit(e, signupInfluencer)}
+                    disabled={loading || validateForm()}
                   >
                     SIGN UP
                   </Button>
+                </div>
+                <div className="signup-error">
+                  {error && <Error error={error} />}
                 </div>
               </form>
             );

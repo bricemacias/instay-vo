@@ -21,25 +21,38 @@ const theme = createMuiTheme({
 
 const InstagramCheck = props => {
   const [instagram, setInstagram] = useState('');
+  const [disabled, setDisabled] = useState(false);
 
-  const handleCheck = () => {
+  const handleCheck = async () => {
     var url = `https://www.instagram.com/${instagram}/?__a=1`;
+    await setDisabled(true);
     axios
       .get(url)
-      .then(response => {
+      .then(async response => {
         if (response.data.graphql) {
           if (response.data.graphql.user) {
             if (response.data.graphql.user.edge_followed_by.count >= 5000) {
-              props.handleNext(instagram);
+              await props.handleNext(instagram);
+              setDisabled(false);
             } else {
+              setDisabled(false);
               console.log(`Sorry, you don't have enough followers to apply`);
             }
             console.log(response.data.graphql.user.edge_followed_by.count);
-          } else console.log('No user found');
-        } else console.log('No user found');
+          } else {
+            console.log('No user found');
+            setDisabled(false);
+          }
+        } else {
+          console.log('No user found');
+          setDisabled(false);
+        }
       })
-      .catch(err => console.log('No user found'));
-    //.finally(props.handleNext());
+      .catch(err => {
+        console.log('No user found');
+        setDisabled(false);
+      });
+    //.finally(setDisabled(false));
   };
 
   return (
@@ -104,6 +117,7 @@ const InstagramCheck = props => {
           color="secondary"
           onClick={handleCheck}
           style={{ marginBottom: '2rem' }}
+          disabled={disabled || !instagram}
         >
           Apply
         </Button>

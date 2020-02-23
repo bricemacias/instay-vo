@@ -96,7 +96,7 @@ const InfluencerSignupStepper = () => {
     return step === 0;
   };
 
-  const handleNext = instagram => {
+  const handleNext = async instagram => {
     setActiveStep(prevActiveStep => prevActiveStep + 1);
     setInstagramAccount(instagram);
   };
