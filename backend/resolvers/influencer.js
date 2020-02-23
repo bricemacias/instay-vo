@@ -1,4 +1,5 @@
 import { createInfluencerToken } from '../utils/generate-token';
+import bcrypt from 'bcrypt';
 
 const Query = {
   getAllInfluencers: async (root, args, { Influencer }) => {
@@ -24,6 +25,22 @@ const Mutation = {
       joinDate
     }).save();
     return newInfluencer;
+  },
+
+  signinInfluencer: async (root, { username, password }, { Influencer }) => {
+    const influencer = await Influencer.findOne({ username });
+    if (!influencer) {
+      throw new Error('User not found');
+    }
+
+    const isValidPassword = await bcrypt.compare(password, influencer.password);
+    if (!isValidPassword) {
+      throw new Error('Invalid credentials');
+    }
+
+    return {
+      token: createInfluencerToken(influencer, process.env.SECRET, '1hr')
+    };
   },
 
   signupInfluencer: async (

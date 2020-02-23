@@ -8,17 +8,12 @@ import models from './models';
 
 import cors from 'cors';
 
+import jwt from 'jsonwebtoken';
+
 import schema from './schema';
 import resolvers from './resolvers';
 
-// create server and connect schemas with GraphQl
-import { ApolloServer } from 'apollo-server-express';
-const server = new ApolloServer({
-  typeDefs: schema,
-  resolvers,
-  context: models
-});
-
+// Generate port
 const PORT = process.env.PORT || 4444;
 
 // connect to database
@@ -33,8 +28,8 @@ mongoose.set('useCreateIndex', true);
 
 // Initialize application
 const app = express();
-server.applyMiddleware({ app });
 
+// Cors
 const corsOptions = {
   origin: 'http://localhost:3000',
   credentials: true
@@ -52,6 +47,44 @@ app.head('/graphql', (req, res) => {
 
 app.use(cors(corsOptions));
 
+// Set up JWT authentication middleware
+
+app.use(async (req, res, next) => {
+  const token = req.headers['authorization'];
+  if (token !== 'null') {
+    try {
+      const currentUser = await jwt.verify(token, process.env.SECRET);
+      req.currentUser = currentUser;
+    } catch (err) {
+      console.error(err);
+    }
+  }
+  next();
+});
+
+// create server and connect schemas with GraphQl
+import { ApolloServer } from 'apollo-server-express';
+const server = new ApolloServer({
+  typeDefs: schema,
+  resolvers,
+  context: async ({ req }) => {
+    const token = req.headers['authorization'];
+    if (token !== 'null') {
+      try {
+        const currentUser = await jwt.verify(token, process.env.SECRET);
+        req.currentUser = currentUser;
+      } catch (err) {
+        console.error(err);
+      }
+    }
+    return Object.assign({ currentUser }, models);
+  }
+});
+
+// Apply middleware
+server.applyMiddleware({ app });
+
+// prepare for production
 if (process.env.NODE_ENV === 'production') {
   app.use(express.static('../client/build'));
 
@@ -60,6 +93,7 @@ if (process.env.NODE_ENV === 'production') {
   });
 }
 
+// listen
 app.listen(PORT, () => {
   console.log(`Server listening on ${PORT}`);
 });

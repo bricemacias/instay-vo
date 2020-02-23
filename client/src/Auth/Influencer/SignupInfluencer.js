@@ -52,6 +52,7 @@ const SignupInfluencer = ({ instagramAccount }) => {
       }
     }).then(data => {
       console.log(data);
+      localStorage.setItem('token', data.signupInfluencer.token);
       clearState();
     });
   };

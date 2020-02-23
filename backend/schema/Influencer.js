@@ -42,6 +42,8 @@ const InfluencerSchema = gql`
       email: String!
       password: String!
     ): Token
+
+    signinInfluencer(username: String!, password: String!): Token
   }
 `;
 

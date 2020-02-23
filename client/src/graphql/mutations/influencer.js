@@ -21,3 +21,11 @@ export const SIGNUP_INFLUENCER = gql`
     }
   }
 `;
+
+export const SIGNIN_INFLUENCER = gql`
+  mutation($username: String!, $password: String!) {
+    signinInfluencer(username: $username, password: $password) {
+      token
+    }
+  }
+`;
