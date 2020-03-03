@@ -12,6 +12,7 @@ import { makeStyles, withStyles } from '@material-ui/core/styles';
 
 import SignupInfluencer from './SignupInfluencer';
 import InstagramCheck from './InstagramCheck';
+import GoToDashboard from './GoToDashboard';
 
 const QontoConnector = withStyles({
   alternativeLabel: {
@@ -106,9 +107,14 @@ const InfluencerSignupStepper = () => {
       case 0:
         return <InstagramCheck handleNext={handleNext} />;
       case 1:
-        return <SignupInfluencer instagramAccount={instagramAccount} />;
+        return (
+          <SignupInfluencer
+            handleNext={setActiveStep}
+            instagramAccount={instagramAccount}
+          />
+        );
       case 2:
-        return 'All good to go !';
+        return <GoToDashboard />;
       default:
         return 'Unknown step';
     }

@@ -1,16 +1,16 @@
 import React, { useState } from 'react';
-import { withRouter } from 'react-router-dom';
+// import { withRouter } from 'react-router-dom';
 import TextField from '@material-ui/core/TextField';
 import Checkbox from '@material-ui/core/Checkbox';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 import Button from '@material-ui/core/Button';
 import { ThemeProvider, createMuiTheme } from '@material-ui/core/styles';
 
-import Error from '../../components/Error';
+import Error from '../../../components/Error';
 
 import { Mutation } from 'react-apollo';
 
-import { SIGNUP_INFLUENCER } from '../../graphql/mutations/influencer';
+import { SIGNUP_INFLUENCER } from '../../../graphql/mutations/influencer';
 
 const theme = createMuiTheme({
   palette: {
@@ -56,7 +56,8 @@ const SignupInfluencer = props => {
       localStorage.setItem('token', data.signupInfluencer.token);
       await props.refetch;
       clearState();
-      props.history.push('/');
+      // props.history.push('/');
+      await props.handleNext(prevActiveStep => prevActiveStep + 1);
     });
   };
 
@@ -179,4 +180,4 @@ const SignupInfluencer = props => {
   );
 };
 
-export default withRouter(SignupInfluencer);
+export default SignupInfluencer;

@@ -7,10 +7,11 @@ import {
 } from 'react-router-dom';
 
 import App from '../App/App';
-import SignupInfluencer from '../Auth/Influencer/SignupInfluencer';
+import SignupInfluencer from '../Auth/Influencer/Signup/SignupInfluencer';
 import SigninInfluencer from '../Auth/Influencer/SigninInfluencer';
-import InstagramCheck from '../Auth/Influencer/InstagramCheck';
-import InfluencerSignupStepper from '../Auth/Influencer/InfluencerSignupStepper';
+import InstagramCheck from '../Auth/Influencer/Signup/InstagramCheck';
+import GoToDashboard from '../Auth/Influencer/Signup/GoToDashboard';
+import InfluencerSignupStepper from '../Auth/Influencer/Signup/InfluencerSignupStepper';
 
 const Routes = ({ refetch }) => {
   return (
@@ -25,6 +26,10 @@ const Routes = ({ refetch }) => {
         <Route
           path="/signup"
           render={() => <SignupInfluencer refetch={refetch} />}
+        />
+        <Route
+          path="/Gotodashboard"
+          render={() => <GoToDashboard refetch={refetch} />}
         />
         <Route
           path="/InfluencerSignupStepper"
