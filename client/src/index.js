@@ -10,9 +10,16 @@ import withSession from './components/utils/withSession';
 import ApolloClient from 'apollo-boost';
 import { ApolloProvider } from 'react-apollo';
 
+import { InMemoryCache } from 'apollo-cache-inmemory';
+
+import { createHttpLink } from 'apollo-link-http';
+
 const client = new ApolloClient({
-  uri: 'https://instay-v0.herokuapp.com/graphql',
-  //uri: 'http://localhost:4444/graphql',
+  // cache: new InMemoryCache(),
+
+  // link: createHttpLink({ uri: 'http://localhost:4444/graphql' }),
+  // //uri: 'https://instay-v0.herokuapp.com/graphql',
+  uri: 'http://localhost:4444/graphql',
   fetchOptions: {
     credentials: 'include'
   },

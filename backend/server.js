@@ -50,7 +50,7 @@ app.use(cors(corsOptions));
 // Set up JWT authentication middleware
 
 app.use(async (req, res, next) => {
-  const token = req.headers['authorization'];
+  const token = req.headers.authorization;
   if (token !== 'null') {
     try {
       const currentUser = await jwt.verify(token, process.env.SECRET);
@@ -63,25 +63,34 @@ app.use(async (req, res, next) => {
 });
 
 // create server and connect schemas with GraphQl
+
+// import { ApolloServer } from 'apollo-server-express';
+// const server = new ApolloServer({
+//   typeDefs: schema,
+//   resolvers,
+//   context: async ({ req }) => {
+//     const token = await req.headers.authorization;
+//     let authUser;
+//     if (token !== 'null') {
+//       try {
+//         const currentUser = await jwt.verify(token, process.env.SECRET);
+
+//         if (currentUser) {
+//           authUser = currentUser;
+//         }
+//       } catch (err) {
+//         console.error(err);
+//       }
+//     }
+//     return Object.assign({ authUser }, models);
+//   }
+// });
 import { ApolloServer } from 'apollo-server-express';
 const server = new ApolloServer({
   typeDefs: schema,
   resolvers,
   context: async ({ req }) => {
-    const token = await req.headers.authorization;
-    let authUser;
-    if (token !== 'null') {
-      try {
-        const currentUser = await jwt.verify(token, process.env.SECRET);
-
-        if (currentUser) {
-          authUser = currentUser;
-        }
-      } catch (err) {
-        console.error(err);
-      }
-    }
-    return Object.assign({ authUser }, models);
+    return Object.assign(models, { currentUser: req.currentUser });
   }
 });
 

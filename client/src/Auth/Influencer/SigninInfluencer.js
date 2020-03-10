@@ -37,8 +37,8 @@ const SigninInfluencer = props => {
       }
     }).then(async ({ data }) => {
       console.log(data);
-      localStorage.setItem('token', data.signinInfluencer.token);
-      await props.refetch;
+      window.localStorage.setItem('token', `${data.signinInfluencer.token}`);
+      await props.refetch();
       clearState();
       props.history.push('/');
     });

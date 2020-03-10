@@ -50,10 +50,6 @@
   grid-row-gap: 50px;
   grid-column-gap: 10px;
   margin: 0 1rem;
-
-  @media only screen and (max-width: $bp-smallest) {
-    grid-template-rows: repeat(9, 50px);
-  }
 }
 
 .username-login {

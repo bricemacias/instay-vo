@@ -54,7 +54,7 @@ const SignupInfluencer = props => {
     }).then(async ({ data }) => {
       console.log(data);
       localStorage.setItem('token', data.signupInfluencer.token);
-      await props.refetch;
+      await props.refetch();
       clearState();
       // props.history.push('/');
       await props.handleNext(prevActiveStep => prevActiveStep + 1);

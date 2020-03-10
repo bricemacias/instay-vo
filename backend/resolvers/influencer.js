@@ -8,13 +8,13 @@ const Query = {
     return allInfluencers;
   },
 
-  getCurrentInfluencer: async (root, args, { authUser, Influencer }) => {
-    if (!authUser) {
+  getCurrentInfluencer: async (root, args, { currentUser, Influencer }) => {
+    if (!currentUser) {
       return null;
     }
 
     const influencer = await Influencer.findOne({
-      username: authUser.username
+      username: currentUser.username
     });
     // .populate({
     //   path: 'favorite',
