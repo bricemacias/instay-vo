@@ -9,10 +9,11 @@ import withSession from './components/utils/withSession';
 
 import ApolloClient from 'apollo-boost';
 import { ApolloProvider } from 'react-apollo';
+import { ApolloProvider as ApolloHooksProvider } from '@apollo/react-hooks';
 
-import { InMemoryCache } from 'apollo-cache-inmemory';
+// import { InMemoryCache } from 'apollo-cache-inmemory';
 
-import { createHttpLink } from 'apollo-link-http';
+// import { createHttpLink } from 'apollo-link-http';
 
 const client = new ApolloClient({
   // cache: new InMemoryCache(),
@@ -47,7 +48,9 @@ const RouteWithSession = withSession(Routes);
 
 ReactDOM.render(
   <ApolloProvider client={client}>
-    <RouteWithSession />
+    <ApolloHooksProvider client={client}>
+      <RouteWithSession />
+    </ApolloHooksProvider>
   </ApolloProvider>,
   document.getElementById('root')
 );
