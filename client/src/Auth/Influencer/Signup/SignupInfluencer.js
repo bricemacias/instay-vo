@@ -10,7 +10,7 @@ import Error from '../../../components/Error';
 
 import { Mutation } from 'react-apollo';
 
-import { SIGNUP_INFLUENCER } from '../../../graphql/mutations/influencer';
+import { SIGNUP_INFLUENCER } from '../../../graphql/influencer';
 
 const theme = createMuiTheme({
   palette: {

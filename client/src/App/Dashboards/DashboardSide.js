@@ -1,12 +1,12 @@
 import React from 'react';
-import user from '../img/user-6.jpg';
-import icons from '../img/sprite.svg';
-import '../App.css';
-import '../styles/css/style.css';
+import user from '../../img/user-6.jpg';
+import icons from '../../img/sprite.svg';
+import '../../App.css';
+import '../../styles/css/style.css';
 
 import SidebarWithTitle from '../Layout/SidebarWithTitle';
 
-import InConstruction from '../Pages/InConstruction';
+import InConstruction from '../../Pages/InConstruction';
 
 const DashboardSide = () => {
   return (

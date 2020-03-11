@@ -1,5 +1,37 @@
 import { gql } from 'apollo-boost';
 
+//
+// Queries
+//
+
+export const GET_ALL_INFLUENCERS = gql`
+  query {
+    getAllInfluencers {
+      firstName
+      lastName
+      username
+      instagram
+      password
+      email
+      joinDate
+    }
+  }
+`;
+
+export const GET_CURRENT_INFLUENCER = gql`
+  query {
+    getCurrentInfluencer {
+      username
+      email
+      joinDate
+    }
+  }
+`;
+
+//
+// Mutations
+//
+
 export const SIGNUP_INFLUENCER = gql`
   mutation(
     $firstName: String!

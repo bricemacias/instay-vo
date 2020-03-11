@@ -1,5 +1,5 @@
 import React from 'react';
-import icons from '../img/sprite.svg';
+import icons from '../../img/sprite.svg';
 import { findByLabelText } from '@testing-library/react';
 
 const SidebarWithTitle = () => {

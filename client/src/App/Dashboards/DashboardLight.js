@@ -1,22 +1,19 @@
 import React from 'react';
-import user from '../img/user-6.jpg';
-import icons from '../img/sprite.svg';
-import '../App.css';
-import '../styles/css/style.css';
+import user from '../../img/user-6.jpg';
+import icons from '../../img/sprite.svg';
+import '../../App.css';
+import '../../styles/css/style.css';
 
 import Sidebar from '../Layout/Sidebar';
 
-import InConstruction from '../Pages/InConstruction';
+import InConstruction from '../../Pages/InConstruction';
 
-const DashboardDark = () => {
+const DashboardLight = () => {
   return (
     <div className="container">
-      <header className="header-dark">
-        <div className="logo-header">
-          <h1 className="logo-title">INSTAY</h1>
-        </div>
-
-        <form action="#" className="search search--dark-mode">
+      <header className="header">
+        <h1 className="logo-title logo-title--light">INSTAY</h1>
+        <form action="#" className="search">
           <input
             type="text"
             className="search__input"
@@ -28,32 +25,27 @@ const DashboardDark = () => {
             </svg>
           </button>
         </form>
-        <nav className="user-nav user-nav--dark-mode">
+        <nav className="user-nav">
           <div className="user-nav__icon-box">
-            <svg className="user-nav__icon--dark-mode">
+            <svg className="user-nav__icon">
               <use xlinkHref={`${icons}#icon-bell`} />
             </svg>
             <span className="user-nav__notification">7</span>
           </div>
           <div className="user-nav__icon-box">
-            <svg className="user-nav__icon--dark-mode">
+            <svg className="user-nav__icon">
               <use xlinkHref={`${icons}#icon-bubbles2`} />
             </svg>
             <span className="user-nav__notification">13</span>
           </div>
           <div className="user-nav__user">
             <img src={user} alt="User photo" className="user-nav__user-photo" />
-            <span className="user-nav__user-name user-nav__user-name--dark-mode">
-              Sarah
-            </span>
+            <span className="user-nav__user-name">Sarah</span>
           </div>
         </nav>
       </header>
-      <div className="content"></div>
-
       <div className="content">
         <Sidebar />
-
         <main className="hotel-view">
           <InConstruction />
         </main>
@@ -62,4 +54,4 @@ const DashboardDark = () => {
   );
 };
 
-export default DashboardDark;
+export default DashboardLight;

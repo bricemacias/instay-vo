@@ -7,7 +7,7 @@ import {
 } from 'react-router-dom';
 
 import { useQuery } from '@apollo/react-hooks';
-import { GET_CURRENT_INFLUENCER } from '../graphql/queries/influencer';
+import { GET_CURRENT_INFLUENCER } from '../graphql/influencer';
 
 import App from '../App/App';
 import SignupInfluencer from '../Auth/Influencer/Signup/SignupInfluencer';
@@ -29,7 +29,16 @@ const Routes = ({ session, refetch }) => {
             render={() => <App authUser={session.getCurrentInfluencer} />}
           />
         ) : (
-          <Route exact render={() => <SigninInfluencer refetch={refetch} />} />
+          <>
+            <Route
+              exact
+              render={() => <SigninInfluencer refetch={refetch} />}
+            />
+            <Route
+              path="/InfluencerSignupStepper"
+              component={InfluencerSignupStepper}
+            />
+          </>
         )}
         <Route path="/" exact component={App} />
         {/* <Route

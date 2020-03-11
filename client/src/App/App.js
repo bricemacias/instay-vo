@@ -3,10 +3,10 @@ import Button from '@material-ui/core/Button';
 import '../App.css';
 import '../styles/css/style.css';
 
-import DashboardSelector from '../Dashboards/DashboardSelector';
+import DashboardSelector from './Dashboards/DashboardSelector';
 
 import { Query } from 'react-apollo';
-import { GET_ALL_INFLUENCERS } from '../graphql/queries/influencer';
+import { GET_ALL_INFLUENCERS } from '../graphql/influencer';
 
 const App = () => {
   const [theme, setTheme] = useState('dark');

@@ -8,7 +8,7 @@ import Error from '../../components/Error';
 
 import { Mutation } from 'react-apollo';
 
-import { SIGNIN_INFLUENCER } from '../../graphql/mutations/influencer';
+import { SIGNIN_INFLUENCER } from '../../graphql/influencer';
 
 const theme = createMuiTheme({
   palette: {
