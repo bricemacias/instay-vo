@@ -1,38 +1,42 @@
 import React, { useState } from 'react';
 import { withRouter } from 'react-router-dom';
-import styled from 'styled-components';
 
 import Typography from '@material-ui/core/Typography';
 import Button from '@material-ui/core/Button';
 import { ThemeProvider, createMuiTheme } from '@material-ui/core/styles';
+import { MaterialTheme } from '../../../styles/MaterialThemes';
 
-const theme = createMuiTheme({
-  palette: {
-    primary: { main: '#7f9eb2' }
-  },
-  typography: {
-    fontSize: 20
-  }
-});
+import styled from 'styled-components';
+import { Container, Title, Subtitle } from '../../../styles/Auth/Auth';
 
+// Styles
 const Text = styled.div`
   text-align: center;
   width: 70%;
   margin: 1rem auto 2rem;
+
+  /* text-align: center;
+  width: 80%;
+  margin: 2rem auto 2rem; */
 `;
 
+// Component
 const GoToDashboard = props => {
   return (
-    <ThemeProvider theme={theme}>
-      <div className="signup-container">
-        <h2 className="instagram-title">INSTAY</h2>
-        <h3 className="signup-subtitle">Registration successful</h3>
+    <ThemeProvider theme={MaterialTheme}>
+      <Container>
+        <Title>INSTAY</Title>
+        <Subtitle>Registration successful</Subtitle>
 
-        <Text className="verification-text">
+        <Text>
           <Typography>
             Thank you for signin in. An email was sent to you in order to
-            confirm your registration. If your account gets successfully
-            verified by our team, you will receive a second email to confirm it.
+            confirm your registration.
+          </Typography>
+          <br />
+          <Typography>
+            If your account gets successfully verified by our team, you will
+            receive a second email to confirm it.
           </Typography>
           <br />
           <br />
@@ -51,7 +55,7 @@ const GoToDashboard = props => {
         >
           Go to Dashboard
         </Button>
-      </div>
+      </Container>
     </ThemeProvider>
   );
 };

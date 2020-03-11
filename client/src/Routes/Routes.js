@@ -9,6 +9,8 @@ import {
 import { useQuery } from '@apollo/react-hooks';
 import { GET_CURRENT_INFLUENCER } from '../graphql/influencer';
 
+import { GlobalStyle } from '../styles/GlobalStyles';
+
 import App from '../App/App';
 import SignupInfluencer from '../Auth/Influencer/Signup/SignupInfluencer';
 import SigninInfluencer from '../Auth/Influencer/SigninInfluencer';
@@ -22,8 +24,9 @@ const Routes = ({ session, refetch }) => {
 
   return (
     <Router>
+      <GlobalStyle />
       <Switch>
-        {session.getCurrentInfluencer ? (
+        {/* {session.getCurrentInfluencer ? (
           <Route
             exact
             render={() => <App authUser={session.getCurrentInfluencer} />}
@@ -39,11 +42,11 @@ const Routes = ({ session, refetch }) => {
               component={InfluencerSignupStepper}
             />
           </>
-        )}
+        )} */}
         <Route path="/" exact component={App} />
-        {/* <Route
+        <Route
           path="/signin"
-          render={() => <SigninInfluencer refetch={refetch} />} */}
+          render={() => <SigninInfluencer refetch={refetch} />}
         />
         <Route path="/instagram-check" component={InstagramCheck} />
         <Route

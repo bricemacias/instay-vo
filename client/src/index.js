@@ -3,6 +3,10 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import * as serviceWorker from './serviceWorker';
 
+import 'normalize.css';
+import theme from './styles/theme';
+import { ThemeProvider } from 'styled-components';
+
 import Routes from './Routes/Routes';
 
 import withSession from './components/utils/withSession';
@@ -49,7 +53,9 @@ const RouteWithSession = withSession(Routes);
 ReactDOM.render(
   <ApolloProvider client={client}>
     <ApolloHooksProvider client={client}>
-      <RouteWithSession />
+      <ThemeProvider theme={theme}>
+        <RouteWithSession />
+      </ThemeProvider>
     </ApolloHooksProvider>
   </ApolloProvider>,
   document.getElementById('root')

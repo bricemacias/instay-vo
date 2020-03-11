@@ -1,10 +1,15 @@
 import React, { useState } from 'react';
 // import { withRouter } from 'react-router-dom';
+
 import TextField from '@material-ui/core/TextField';
 import Checkbox from '@material-ui/core/Checkbox';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 import Button from '@material-ui/core/Button';
 import { ThemeProvider, createMuiTheme } from '@material-ui/core/styles';
+import { MaterialTheme } from '../../../styles/MaterialThemes';
+
+import styled from 'styled-components';
+import { Container, Title, Subtitle } from '../../../styles/Auth/Auth';
 
 import Error from '../../../components/Error';
 
@@ -12,14 +17,101 @@ import { Mutation } from 'react-apollo';
 
 import { SIGNUP_INFLUENCER } from '../../../graphql/influencer';
 
-const theme = createMuiTheme({
-  palette: {
-    primary: { main: '#7f9eb2' }
-  },
-  typography: {
-    fontSize: 20
+// Styles
+const Form = styled.form`
+  display: grid;
+  font-size: 1.7rem;
+  grid-template-rows: repeat(7, 50px);
+  grid-template-columns: repeat(2, 1fr);
+  grid-gap: 10px;
+  margin: 0 1rem;
+
+  @media only screen and (max-width: ${p => p.theme.screen.smallest}) {
+    grid-template-rows: repeat(9, 50px);
   }
-});
+`;
+
+const FirstName = styled.div`
+  grid-row: 1/2;
+  grid-column: 1/2;
+
+  @media only screen and (max-width: ${p => p.theme.screen.smallest}) {
+    grid-column: 1/-1;
+  }
+`;
+
+const LastName = styled.div`
+  grid-row: 1/2;
+  grid-column: 2/3;
+
+  @media only screen and (max-width: ${p => p.theme.screen.smallest}) {
+    grid-row: 2/3;
+    grid-column: 1/-1;
+  }
+`;
+
+const Username = styled.div`
+  grid-row: 2/3;
+  grid-column: 1/3;
+
+  @media only screen and (max-width: ${p => p.theme.screen.smallest}) {
+    grid-row: 3/4;
+  }
+`;
+
+const Email = styled.div`
+  grid-row: 3/4;
+  grid-column: 1/3;
+
+  @media only screen and (max-width: ${p => p.theme.screen.smallest}) {
+    grid-row: 4/5;
+  }
+`;
+
+const Password = styled.div`
+  grid-row: 4/5;
+  grid-column: 1/3;
+
+  @media only screen and (max-width: ${p => p.theme.screen.smallest}) {
+    grid-row: 5/6;
+  }
+`;
+
+const Confirm = styled.div`
+  grid-row: 5/6;
+  grid-column: 1/3;
+
+  @media only screen and (max-width: ${p => p.theme.screen.smallest}) {
+    grid-row: 6/7;
+  }
+`;
+
+const Agree = styled.div`
+  grid-row: 6/7;
+  grid-column: 1/3;
+
+  @media only screen and (max-width: ${p => p.theme.screen.smallest}) {
+    grid-row: 7/8;
+  }
+`;
+
+const SignupButton = styled.div`
+  grid-row: 7/8;
+  grid-column: 1/3;
+  justify-self: center;
+
+  @media only screen and (max-width: ${p => p.theme.screen.smallest}) {
+    grid-row: 8/9;
+  }
+`;
+
+const SignupError = styled.div`
+  grid-column: 1/3;
+  justify-self: center;
+  margin-bottom: 3rem;
+`;
+
+// Component
 
 const SignupInfluencer = props => {
   const [firstName, setFirstName] = useState('');
@@ -75,17 +167,15 @@ const SignupInfluencer = props => {
   };
 
   return (
-    <ThemeProvider theme={theme}>
-      <div className="signup-container">
-        <h2 className="signup-title">INSTAY</h2>
-        <h3 className="signup-subtitle">
-          Please complete to create your account
-        </h3>
+    <ThemeProvider theme={MaterialTheme}>
+      <Container>
+        <Title>INSTAY</Title>
+        <Subtitle>Please complete to create your account</Subtitle>
         <Mutation mutation={SIGNUP_INFLUENCER}>
           {(signupInfluencer, { data, loading, error }) => {
             return (
-              <form className="signup-grid">
-                <div className="first-name">
+              <Form>
+                <FirstName>
                   <TextField
                     id="first-name"
                     label="First Name"
@@ -94,8 +184,8 @@ const SignupInfluencer = props => {
                     value={firstName}
                     onChange={e => setFirstName(e.target.value)}
                   />
-                </div>
-                <div className="last-name">
+                </FirstName>
+                <LastName>
                   <TextField
                     id="last-name"
                     label="Last Name"
@@ -104,8 +194,8 @@ const SignupInfluencer = props => {
                     value={lastName}
                     onChange={e => setLastName(e.target.value)}
                   />
-                </div>
-                <div className="username">
+                </LastName>
+                <Username>
                   <TextField
                     id="username"
                     label="Username"
@@ -114,8 +204,8 @@ const SignupInfluencer = props => {
                     value={username}
                     onChange={e => setUsername(e.target.value)}
                   />
-                </div>
-                <div className="email">
+                </Username>
+                <Email>
                   <TextField
                     id="email"
                     label="Email"
@@ -124,8 +214,8 @@ const SignupInfluencer = props => {
                     value={email}
                     onChange={e => setEmail(e.target.value)}
                   />
-                </div>
-                <div className="password">
+                </Email>
+                <Password>
                   <TextField
                     id="password"
                     label="Password"
@@ -134,8 +224,8 @@ const SignupInfluencer = props => {
                     value={password}
                     onChange={e => setPassword(e.target.value)}
                   />
-                </div>
-                <div className="confirm">
+                </Password>
+                <Confirm>
                   <TextField
                     id="confirm-password"
                     label="Confirm Password"
@@ -144,8 +234,8 @@ const SignupInfluencer = props => {
                     value={confirm}
                     onChange={e => setConfirm(e.target.value)}
                   />
-                </div>
-                <div className="agree">
+                </Confirm>
+                <Agree>
                   <FormControlLabel
                     control={
                       <Checkbox
@@ -156,8 +246,8 @@ const SignupInfluencer = props => {
                     }
                     label="I agree with terms and conditions"
                   />
-                </div>
-                <div className="apply">
+                </Agree>
+                <SignupButton>
                   <Button
                     type="submit"
                     variant="contained"
@@ -167,15 +257,13 @@ const SignupInfluencer = props => {
                   >
                     SIGN UP
                   </Button>
-                </div>
-                <div className="signup-error">
-                  {error && <Error error={error} />}
-                </div>
-              </form>
+                </SignupButton>
+                <SignupError>{error && <Error error={error} />}</SignupError>
+              </Form>
             );
           }}
         </Mutation>
-      </div>
+      </Container>
     </ThemeProvider>
   );
 };

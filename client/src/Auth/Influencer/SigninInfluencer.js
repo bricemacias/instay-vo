@@ -1,8 +1,13 @@
 import React, { useState } from 'react';
 import { withRouter } from 'react-router-dom';
+
 import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
 import { ThemeProvider, createMuiTheme } from '@material-ui/core/styles';
+import { MaterialTheme } from '../../styles/MaterialThemes';
+
+import styled from 'styled-components';
+import { Container, Title, Subtitle } from '../../styles/Auth/Auth';
 
 import Error from '../../components/Error';
 
@@ -10,14 +15,41 @@ import { Mutation } from 'react-apollo';
 
 import { SIGNIN_INFLUENCER } from '../../graphql/influencer';
 
-const theme = createMuiTheme({
-  palette: {
-    primary: { main: '#7f9eb2' }
-  },
-  typography: {
-    fontSize: 20
-  }
-});
+// Styles
+const Form = styled.form`
+  display: grid;
+  font-size: 1.7rem;
+  grid-template-rows: repeat(4, 50px);
+  grid-template-columns: repeat(2, 1fr);
+  grid-row-gap: 50px;
+  grid-column-gap: 10px;
+  margin: 0 1rem;
+`;
+
+const Username = styled.div`
+  margin-top: 3rem;
+  grid-row: 0/1;
+  grid-column: 1/3;
+`;
+
+const Password = styled.div`
+  grid-row: 2/3;
+  grid-column: 1/3;
+`;
+
+const SigninButton = styled.div`
+  grid-row: 3/4;
+  grid-column: 1/3;
+  justify-self: center;
+`;
+
+const SigninError = styled.div`
+  grid-column: 1/3;
+  justify-self: center;
+  margin-bottom: 3rem;
+`;
+
+// Component
 
 const SigninInfluencer = props => {
   const [username, setUsername] = useState('');
@@ -51,17 +83,15 @@ const SigninInfluencer = props => {
   };
 
   return (
-    <ThemeProvider theme={theme}>
-      <div className="signin-container">
-        <h2 className="signin-title">INSTAY</h2>
-        <h3 className="signin-subtitle">
-          Welcome back! Please login to you account
-        </h3>
+    <ThemeProvider theme={MaterialTheme}>
+      <Container>
+        <Title>INSTAY</Title>
+        <Subtitle>Welcome back! Please login to you account</Subtitle>
         <Mutation mutation={SIGNIN_INFLUENCER}>
           {(signinInfluencer, { data, loading, error }) => {
             return (
-              <form className="signin-grid">
-                <div className="username-login">
+              <Form>
+                <Username>
                   <TextField
                     id="username"
                     label="Username"
@@ -70,8 +100,8 @@ const SigninInfluencer = props => {
                     value={username}
                     onChange={e => setUsername(e.target.value)}
                   />
-                </div>
-                <div className="password-login">
+                </Username>
+                <Password>
                   <TextField
                     id="password"
                     label="Password"
@@ -80,8 +110,8 @@ const SigninInfluencer = props => {
                     value={password}
                     onChange={e => setPassword(e.target.value)}
                   />
-                </div>
-                <div className="signin-button">
+                </Password>
+                <SigninButton>
                   <Button
                     type="submit"
                     variant="contained"
@@ -91,15 +121,13 @@ const SigninInfluencer = props => {
                   >
                     SIGN IN
                   </Button>
-                </div>
-                <div className="signin-error">
-                  {error && <Error error={error} />}
-                </div>
-              </form>
+                </SigninButton>
+                <SigninError>{error && <Error error={error} />}</SigninError>
+              </Form>
             );
           }}
         </Mutation>
-      </div>
+      </Container>
     </ThemeProvider>
   );
 };

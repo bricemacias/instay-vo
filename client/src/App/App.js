@@ -3,6 +3,8 @@ import Button from '@material-ui/core/Button';
 import '../App.css';
 import '../styles/css/style.css';
 
+import theme from '../styles/theme';
+
 import DashboardSelector from './Dashboards/DashboardSelector';
 
 import { Query } from 'react-apollo';
