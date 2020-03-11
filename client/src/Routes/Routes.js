@@ -16,21 +16,21 @@ import InstagramCheck from '../Auth/Influencer/Signup/InstagramCheck';
 import GoToDashboard from '../Auth/Influencer/Signup/GoToDashboard';
 import InfluencerSignupStepper from '../Auth/Influencer/Signup/InfluencerSignupStepper';
 
-const Routes = ({ data, refetch }) => {
-  // const { data } = useQuery(GET_CURRENT_INFLUENCER);
-  // console.log(data);
+const Routes = ({ session, refetch }) => {
+  // const { session } = useQuery(GET_CURRENT_INFLUENCER);
+  // console.log(session);
 
   return (
     <Router>
       <Switch>
-        {/* {data.getCurrentInfluencer ? (
+        {session.getCurrentInfluencer ? (
           <Route
             exact
-            render={() => <App authUser={data.getCurrentInfluencer} />}
+            render={() => <App authUser={session.getCurrentInfluencer} />}
           />
         ) : (
           <Route exact render={() => <SigninInfluencer refetch={refetch} />} />
-        )} */}
+        )}
         <Route path="/" exact component={App} />
         {/* <Route
           path="/signin"

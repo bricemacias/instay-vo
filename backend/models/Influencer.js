@@ -14,7 +14,10 @@ const InfluencerSchema = new Schema({
   },
   email: {
     type: String,
-    require: true
+    lowercase: true,
+    trim: true,
+    unique: true,
+    required: true
   },
   instagram: {
     type: String,
@@ -23,6 +26,7 @@ const InfluencerSchema = new Schema({
   username: {
     type: String,
     required: true,
+    trim: true,
     unique: true
   },
   password: {
@@ -32,6 +36,14 @@ const InfluencerSchema = new Schema({
   joinDate: {
     type: Date,
     default: Date.now
+  },
+  verified: {
+    type: Boolean,
+    default: false
+  },
+  hasAccess: {
+    type: Boolean,
+    default: true
   }
 
   // Ajouter collaborations, campaigns, interested influencers

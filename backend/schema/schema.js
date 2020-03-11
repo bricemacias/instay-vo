@@ -1,6 +1,7 @@
 import { gql } from 'apollo-server-express';
 
-import ClientSchema from './Client';
+import HotelOwnerSchema from './HotelOwner';
+import HotelSchema from './Hotel';
 import InfluencerSchema from './Influencer';
 import TokenSchema from './Token';
 
@@ -16,8 +17,8 @@ const schema = gql`
   type Subscription {
     _empty: String
   }
-
-  ${ClientSchema}
+  ${HotelOwnerSchema}
+  ${HotelSchema}
   ${InfluencerSchema}
   ${TokenSchema}
 `;

@@ -1,7 +1,5 @@
 import { gql } from 'apollo-server-express';
 
-import TokenSchema from './Token';
-
 const InfluencerSchema = gql`
   # Model Objects
 
@@ -13,6 +11,8 @@ const InfluencerSchema = gql`
     password: String!
     email: String!
     joinDate: String
+    verified: String
+    hasAccess: String
   }
 
   # Queries

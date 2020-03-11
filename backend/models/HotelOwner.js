@@ -3,7 +3,7 @@ import bcrypt from 'bcrypt';
 
 const Schema = mongoose.Schema;
 
-const ClientSchema = new Schema({
+const HotelOwnerSchema = new Schema({
   firstName: {
     type: String,
     required: true
@@ -12,26 +12,23 @@ const ClientSchema = new Schema({
     type: String,
     required: true
   },
-  hotelName: {
+  username: {
     type: String,
+    trim: true,
+    unique: true,
     required: true
   },
   email: {
     type: String,
+    trim: true,
+    unique: true,
     require: true
   },
   phone: {
     type: Number,
     required: true
   },
-  location: {
-    type: String,
-    required: true
-  },
-  username: {
-    type: String,
-    required: true
-  },
+  hotels: [{ type: [Schema.Types.ObjectId], ref: 'Hotel' }],
   password: {
     type: String,
     required: true
@@ -44,7 +41,7 @@ const ClientSchema = new Schema({
   // Ajouter collaborations, campaigns, interested influencers
 });
 
-ClientSchema.pre('save', function(next) {
+HotelOwnerSchema.pre('save', function(next) {
   if (!this.isModified('password')) {
     return next();
   }
@@ -60,4 +57,4 @@ ClientSchema.pre('save', function(next) {
   });
 });
 
-export default mongoose.model('Client', ClientSchema);
+export default mongoose.model('HotelOwner', HotelOwnerSchema);

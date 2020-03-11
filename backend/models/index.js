@@ -1,7 +1,9 @@
-import Client from './Client';
+import HotelOwner from './HotelOwner';
+import Hotel from './Hotel';
 import Influencer from './Influencer';
 
 export default {
-  Client,
+  HotelOwner,
+  Hotel,
   Influencer
 };
