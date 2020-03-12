@@ -10,6 +10,8 @@ import StepConnector from '@material-ui/core/StepConnector';
 import Typography from '@material-ui/core/Typography';
 import { makeStyles, withStyles } from '@material-ui/core/styles';
 
+import { OpacityDelayStepper } from '../../../animations';
+
 import SignupInfluencer from './SignupInfluencer';
 import InstagramCheck from './InstagramCheck';
 import GoToDashboard from './GoToDashboard';
@@ -88,7 +90,7 @@ const getSteps = () => {
   return ['Verify Instagram account', 'Create an account', 'Go to Dashboard'];
 };
 
-const InfluencerSignupStepper = () => {
+const InfluencerSignupStepper = ({ refetch }) => {
   const [activeStep, setActiveStep] = useState(0);
   const [instagramAccount, setInstagramAccount] = useState('');
   const steps = getSteps();
@@ -105,16 +107,17 @@ const InfluencerSignupStepper = () => {
   const getStepContent = step => {
     switch (step) {
       case 0:
-        return <InstagramCheck handleNext={handleNext} />;
+        return <InstagramCheck handleNext={handleNext} refetch={refetch} />;
       case 1:
         return (
           <SignupInfluencer
             handleNext={setActiveStep}
             instagramAccount={instagramAccount}
+            refetch={refetch}
           />
         );
       case 2:
-        return <GoToDashboard />;
+        return <GoToDashboard refetch={refetch} />;
       default:
         return 'Unknown step';
     }
@@ -130,26 +133,28 @@ const InfluencerSignupStepper = () => {
 
   return (
     <div>
-      <Stepper alternativeLabel activeStep={activeStep}>
-        {steps.map((label, index) => {
-          const stepProps = {};
-          const labelProps = {};
-          return (
-            <Step key={label} {...stepProps} connector={<QontoConnector />}>
-              <StepLabel StepIconComponent={QontoStepIcon} {...labelProps}>
-                {label}
-              </StepLabel>
-            </Step>
-          );
-        })}
-      </Stepper>
+      <OpacityDelayStepper>
+        <Stepper alternativeLabel activeStep={activeStep}>
+          {steps.map((label, index) => {
+            const stepProps = {};
+            const labelProps = {};
+            return (
+              <Step key={label} {...stepProps} connector={<QontoConnector />}>
+                <StepLabel StepIconComponent={QontoStepIcon} {...labelProps}>
+                  {label}
+                </StepLabel>
+              </Step>
+            );
+          })}
+        </Stepper>
+      </OpacityDelayStepper>
       <div>
         {activeStep === steps.length ? (
           <div>
             <Typography>All steps completed - you&apos;re finished</Typography>
           </div>
         ) : (
-          <div>{getStepContent(activeStep)}</div>
+          getStepContent(activeStep)
         )}
         ;
       </div>

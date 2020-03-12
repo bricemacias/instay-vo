@@ -9,6 +9,8 @@ import { MaterialTheme } from '../../../styles/MaterialThemes';
 import styled from 'styled-components';
 import { Container, Title, Subtitle } from '../../../styles/Auth/Auth';
 
+import { OpacityScaleMedium } from '../../../animations';
+
 // Styles
 const Text = styled.div`
   text-align: center;
@@ -22,40 +24,46 @@ const Text = styled.div`
 
 // Component
 const GoToDashboard = props => {
+  const handleClick = async () => {
+    await props.refetch();
+    await props.history.push('/');
+  };
   return (
     <ThemeProvider theme={MaterialTheme}>
-      <Container>
-        <Title>INSTAY</Title>
-        <Subtitle>Registration successful</Subtitle>
+      <OpacityScaleMedium>
+        <Container>
+          <Title>INSTAY</Title>
+          <Subtitle>Registration successful</Subtitle>
 
-        <Text>
-          <Typography>
-            Thank you for signin in. An email was sent to you in order to
-            confirm your registration.
-          </Typography>
-          <br />
-          <Typography>
-            If your account gets successfully verified by our team, you will
-            receive a second email to confirm it.
-          </Typography>
-          <br />
-          <br />
-          <Typography>
-            <strong>
-              In the meantime, feel free to explore the Dashboard!{' '}
-            </strong>
-          </Typography>
-        </Text>
+          <Text>
+            <Typography>
+              Thank you for signin in. An email was sent to you in order to
+              confirm your registration.
+            </Typography>
+            <br />
+            <Typography>
+              If your account gets successfully verified by our team, you will
+              receive a second email to confirm it.
+            </Typography>
+            <br />
+            <br />
+            <Typography>
+              <strong>
+                In the meantime, feel free to explore the Dashboard!{' '}
+              </strong>
+            </Typography>
+          </Text>
 
-        <Button
-          variant="contained"
-          color="secondary"
-          onClick={() => props.history.push('/')}
-          style={{ marginBottom: '2rem' }}
-        >
-          Go to Dashboard
-        </Button>
-      </Container>
+          <Button
+            variant="contained"
+            color="secondary"
+            onClick={handleClick}
+            style={{ marginBottom: '2rem' }}
+          >
+            Go to Dashboard
+          </Button>
+        </Container>
+      </OpacityScaleMedium>
     </ThemeProvider>
   );
 };

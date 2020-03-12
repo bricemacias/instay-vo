@@ -7,7 +7,7 @@ export const Container = styled.div`
   align-items: center;
   justify-content: center;
   max-width: 500px;
-  margin: 20rem auto;
+  margin: 12rem auto;
 
   border-width: 0;
   border-bottom-width: 0rem;
@@ -18,7 +18,7 @@ export const Container = styled.div`
   z-index: 100;
   @media only screen and (max-width: ${p => p.theme.screen.smallest}) {
     height: 100vh;
-    margin: 0;
+    margin: 0 auto;
   }
 `;
 

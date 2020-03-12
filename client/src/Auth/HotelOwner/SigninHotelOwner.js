@@ -15,7 +15,7 @@ import Error from '../../components/Error';
 
 import { Mutation } from 'react-apollo';
 
-import { SIGNIN_INFLUENCER } from '../../graphql/influencer';
+import { SIGNIN_HOTEL_OWNER } from '../../graphql/hotelOwner';
 
 // Styles
 const Form = styled.form`
@@ -39,15 +39,9 @@ const Password = styled.div`
   grid-column: 1/3;
 `;
 
-const SignupButton = styled.div`
-  grid-row: 3/4;
-  grid-column: 1/2;
-  justify-self: center;
-`;
-
 const SigninButton = styled.div`
   grid-row: 3/4;
-  grid-column: 2/3;
+  grid-column: 1/3;
   justify-self: center;
 `;
 
@@ -59,7 +53,7 @@ const SigninError = styled.div`
 
 // Component
 
-const SigninInfluencer = props => {
+const SigninHotelOwner = props => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
 
@@ -68,16 +62,16 @@ const SigninInfluencer = props => {
     setPassword('');
   };
 
-  const handleSubmit = (e, signinInfluencer) => {
+  const handleSubmit = (e, signinHotelOwner) => {
     e.preventDefault();
-    signinInfluencer({
+    signinHotelOwner({
       variables: {
         username: username,
         password: password
       }
     }).then(async ({ data }) => {
       console.log(data);
-      window.localStorage.setItem('token', `${data.signinInfluencer.token}`);
+      window.localStorage.setItem('token', `${data.signinHotelOwner.token}`);
       await props.refetch();
       clearState();
       props.history.push('/');
@@ -96,8 +90,8 @@ const SigninInfluencer = props => {
         <Container>
           <Title>INSTAY</Title>
           <Subtitle>Welcome back! Please login to you account</Subtitle>
-          <Mutation mutation={SIGNIN_INFLUENCER}>
-            {(signinInfluencer, { data, loading, error }) => {
+          <Mutation mutation={SIGNIN_HOTEL_OWNER}>
+            {(signinHotelOwner, { data, loading, error }) => {
               return (
                 <Form>
                   <Username>
@@ -120,21 +114,12 @@ const SigninInfluencer = props => {
                       onChange={e => setPassword(e.target.value)}
                     />
                   </Password>
-                  <SignupButton>
-                    <Button
-                      type="submit"
-                      variant="contained"
-                      onClick={() => props.history.push('/SignupInfluencer')}
-                    >
-                      SIGN UP
-                    </Button>
-                  </SignupButton>
                   <SigninButton>
                     <Button
                       type="submit"
                       variant="contained"
                       color="secondary"
-                      onClick={e => handleSubmit(e, signinInfluencer)}
+                      onClick={e => handleSubmit(e, signinHotelOwner)}
                       disabled={loading || validateForm()}
                     >
                       SIGN IN
@@ -151,4 +136,4 @@ const SigninInfluencer = props => {
   );
 };
 
-export default withRouter(SigninInfluencer);
+export default withRouter(SigninHotelOwner);

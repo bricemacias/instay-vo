@@ -7,7 +7,7 @@ import 'normalize.css';
 import theme from './styles/theme';
 import { ThemeProvider } from 'styled-components';
 
-import Routes from './Routes/Routes';
+import RootRoutes from './Routes/RootRoutes';
 
 import withSession from './components/utils/withSession';
 
@@ -48,7 +48,7 @@ const client = new ApolloClient({
   }
 });
 
-const RouteWithSession = withSession(Routes);
+const RouteWithSession = withSession(RootRoutes);
 
 ReactDOM.render(
   <ApolloProvider client={client}>

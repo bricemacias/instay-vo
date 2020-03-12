@@ -11,6 +11,8 @@ import { GET_CURRENT_INFLUENCER } from '../graphql/influencer';
 
 import { GlobalStyle } from '../styles/GlobalStyles';
 
+import ScrollToTop from '../components/ScrollToTop';
+
 import App from '../App/App';
 import SignupInfluencer from '../Auth/Influencer/Signup/SignupInfluencer';
 import SigninInfluencer from '../Auth/Influencer/SigninInfluencer';
@@ -18,32 +20,32 @@ import InstagramCheck from '../Auth/Influencer/Signup/InstagramCheck';
 import GoToDashboard from '../Auth/Influencer/Signup/GoToDashboard';
 import InfluencerSignupStepper from '../Auth/Influencer/Signup/InfluencerSignupStepper';
 
-const Routes = ({ session, refetch }) => {
+import AuthLayout from '../Auth/AuthLayout';
+
+const RootRoutes = ({ session, refetch }) => {
   // const { session } = useQuery(GET_CURRENT_INFLUENCER);
   // console.log(session);
 
   return (
     <Router>
       <GlobalStyle />
-      <Switch>
-        {/* {session.getCurrentInfluencer ? (
-          <Route
-            exact
-            render={() => <App authUser={session.getCurrentInfluencer} />}
-          />
-        ) : (
-          <>
+      <ScrollToTop>
+        <Switch>
+          {session.getCurrentInfluencer ? (
             <Route
               exact
-              render={() => <SigninInfluencer refetch={refetch} />}
+              render={() => <App authUser={session.getCurrentInfluencer} />}
             />
-            <Route
-              path="/InfluencerSignupStepper"
-              component={InfluencerSignupStepper}
-            />
-          </>
-        )} */}
-        <Route path="/" exact component={App} />
+          ) : (
+            <>
+              <Route exact render={() => <AuthLayout refetch={refetch} />} />
+              <Route
+                path="/InfluencerSignupStepper"
+                component={InfluencerSignupStepper}
+              />
+            </>
+          )}
+          {/* <Route path="/" exact component={App} />
         <Route
           path="/signin"
           render={() => <SigninInfluencer refetch={refetch} />}
@@ -61,10 +63,12 @@ const Routes = ({ session, refetch }) => {
           path="/InfluencerSignupStepper"
           component={InfluencerSignupStepper}
         />
-        <Redirect to="/" />
-      </Switch>
+        <Route path="/AuthChoice" component={AuthChoice} /> */}
+          <Redirect to="/" />
+        </Switch>
+      </ScrollToTop>
     </Router>
   );
 };
 
-export default Routes;
+export default RootRoutes;

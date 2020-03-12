@@ -15,6 +15,8 @@ import { MaterialTheme } from '../../../styles/MaterialThemes';
 import styled from 'styled-components';
 import { Container, Title, Subtitle } from '../../../styles/Auth/Auth';
 
+import { OpacityScaleMedium } from '../../../animations';
+
 // Styles
 const InstagramInput = styled.div`
   width: 40%;
@@ -26,10 +28,10 @@ const InstagramInput = styled.div`
   justify-items: center;
   align-items: center;
 
-  @media only screen and (max-width: $bp-smallest) {
+  @media only screen and (max-width: ${p => p.theme.screen.smallest}) {
     width: 55%;
   }
-  @media only screen and (max-width: $bp-400) {
+  @media only screen and (max-width: ${p => p.theme.screen.smallest400}) {
     width: 70%;
   }
 `;
@@ -96,63 +98,65 @@ const InstagramCheck = props => {
 
   return (
     <ThemeProvider theme={MaterialTheme}>
-      <Container>
-        <Title>INSTAY</Title>
-        <Subtitle>Connect your Instagram account</Subtitle>
-        <InstagramIcon
-          style={{ fontSize: 50, marginBottom: '1.3rem' }}
-          color="secondary"
-        />
-        <InstagramInput>
-          <TextField
-            label="Instagram account"
-            variant="outlined"
-            size="small"
-            color="primary"
-            vakue={instagram}
-            onChange={e => setInstagram(e.target.value)}
-            fullWidth
-            InputProps={{
-              startAdornment: (
-                <InputAdornment position="start">
-                  <AlternateEmailIcon fontSize="small" />
-                </InputAdornment>
-              )
-            }}
+      <OpacityScaleMedium>
+        <Container>
+          <Title>INSTAY</Title>
+          <Subtitle>Connect your Instagram account</Subtitle>
+          <InstagramIcon
+            style={{ fontSize: 50, marginBottom: '1.3rem' }}
+            color="secondary"
           />
-          <InfoButton
-            title="You need to have more than 5000 followers to apply"
-            arrow
-          >
-            <InfoIcon />
-          </InfoButton>
-        </InstagramInput>
+          <InstagramInput>
+            <TextField
+              label="Instagram account"
+              variant="outlined"
+              size="small"
+              color="primary"
+              vakue={instagram}
+              onChange={e => setInstagram(e.target.value)}
+              fullWidth
+              InputProps={{
+                startAdornment: (
+                  <InputAdornment position="start">
+                    <AlternateEmailIcon fontSize="small" />
+                  </InputAdornment>
+                )
+              }}
+            />
+            <InfoButton
+              title="You need to have more than 5000 followers to apply"
+              arrow
+            >
+              <InfoIcon />
+            </InfoButton>
+          </InstagramInput>
 
-        <Typography color="secondary">{infoText}</Typography>
-        <Typography color="primary">{followers}</Typography>
-        <VerificationText>
-          <Typography>
-            We verify your followers' number, your engagement rate and your
-            estimated number of authentic followers{' '}
-          </Typography>
-        </VerificationText>
-        <VerificationTextSubtitle>
-          <Typography variant="body2">
-            Connect your account allows us to access your statistics, we can' t
-            do anything with your account and we don' t have access to your
-            password
-          </Typography>
-        </VerificationTextSubtitle>
-        <Button
-          variant="contained"
-          color="secondary"
-          onClick={handleCheck}
-          style={{ marginBottom: '2rem' }}
-          disabled={disabled || !instagram}
-        >
-          Apply
-        </Button>
-      </Container>
+          <Typography color="secondary">{infoText}</Typography>
+          <Typography color="primary">{followers}</Typography>
+          <VerificationText>
+            <Typography>
+              We verify your followers' number, your engagement rate and your
+              estimated number of authentic followers{' '}
+            </Typography>
+          </VerificationText>
+          <VerificationTextSubtitle>
+            <Typography variant="body2">
+              Connect your account allows us to access your statistics, we can'
+              t do anything with your account and we don' t have access to your
+              password
+            </Typography>
+          </VerificationTextSubtitle>
+          <Button
+            variant="contained"
+            color="secondary"
+            onClick={handleCheck}
+            style={{ marginBottom: '2rem' }}
+            disabled={disabled || !instagram}
+          >
+            Apply
+          </Button>
+        </Container>
+      </OpacityScaleMedium>
     </ThemeProvider>
   );
 };

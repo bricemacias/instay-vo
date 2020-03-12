@@ -119,12 +119,12 @@ export default {
     largest: '75em', // 1200 px
     large: '68.75em', // 1100px
     medium: '60em', // 960px
-    800: '50em', // 800px
-    716: '44.75em', // 716px
+    medium800: '50em', // 800px
+    medium716: '44.75em', // 716px
     small: '37.5em', // 600px
-    smallest: '31.25', //500px
-    400: '25em', //400px
-    292: '18.25em' //292px
+    smallest: '31.25em', //500px
+    smallest400: '25em', //400px
+    smallest292: '18.25em' //292px
   },
 
   /**
