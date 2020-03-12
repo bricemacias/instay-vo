@@ -36,6 +36,11 @@ const RootRoutes = ({ session, refetch }) => {
               exact
               render={() => <App authUser={session.getCurrentInfluencer} />}
             />
+          ) : session.getCurrentHotelOwner ? (
+            <Route
+              exact
+              render={() => <App authUser={session.getCurrentHotelOwner} />}
+            />
           ) : (
             <>
               <Route exact render={() => <AuthLayout refetch={refetch} />} />

@@ -14,7 +14,7 @@ const Query = {
     }
 
     const hotelOwner = await HotelOwner.findOne({
-      username: currentUser.username
+      _id: currentUser.id
     });
     // .populate({
     //   path: 'favorite',

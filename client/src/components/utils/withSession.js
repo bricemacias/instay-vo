@@ -2,10 +2,10 @@ import React from 'react';
 
 import { Query } from 'react-apollo';
 
-import { GET_CURRENT_INFLUENCER } from '../../graphql/influencer';
+import { GET_CURRENT_INFLUENCER_OR_HOTEL_OWNER } from '../../graphql/combinations';
 
 const withSession = Component => props => (
-  <Query query={GET_CURRENT_INFLUENCER} fetchPolicy="no-cache">
+  <Query query={GET_CURRENT_INFLUENCER_OR_HOTEL_OWNER} fetchPolicy="no-cache">
     {({ data, loading, refetch }) => {
       if (loading) return null;
       console.log(data);

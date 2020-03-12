@@ -1,6 +1,7 @@
 import { createInfluencerToken } from '../utils/generate-token';
 import bcrypt from 'bcrypt';
 
+// Queries
 const Query = {
   getAllInfluencers: async (root, args, { Influencer }) => {
     const allInfluencers = await Influencer.find();
@@ -14,7 +15,7 @@ const Query = {
     }
 
     const influencer = await Influencer.findOne({
-      username: currentUser.username
+      _id: currentUser.id
     });
     // .populate({
     //   path: 'favorite',
@@ -25,6 +26,7 @@ const Query = {
   }
 };
 
+// Mutations
 const Mutation = {
   addInfluencer: async (
     root,

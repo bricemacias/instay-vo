@@ -72,8 +72,8 @@ const SigninHotelOwner = props => {
     }).then(async ({ data }) => {
       console.log(data);
       window.localStorage.setItem('token', `${data.signinHotelOwner.token}`);
+      await clearState();
       await props.refetch();
-      clearState();
       props.history.push('/');
     });
   };

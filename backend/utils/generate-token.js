@@ -10,11 +10,11 @@ import jwt from 'jsonwebtoken';
  */
 
 export const createInfluencerToken = (influencer, secret, expiresIn) => {
-  const { username, email } = influencer;
-  return jwt.sign({ username, email }, secret, { expiresIn });
+  const { id, username, email } = influencer;
+  return jwt.sign({ id, username, email }, secret, { expiresIn });
 };
 
 export const createHotelOwnerToken = (hotelOwner, secret, expiresIn) => {
-  const { username, email } = hotelOwner;
-  return jwt.sign({ username, email }, secret, { expiresIn });
+  const { id, username, email } = hotelOwner;
+  return jwt.sign({ id, username, email }, secret, { expiresIn });
 };
