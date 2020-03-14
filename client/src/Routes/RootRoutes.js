@@ -11,7 +11,7 @@ import { GET_CURRENT_INFLUENCER } from '../graphql/influencer';
 
 import { GlobalStyle } from '../styles/GlobalStyles';
 
-import ScrollToTop from '../components/ScrollToTop';
+import ScrollToTop from '../Components/ScrollToTop';
 
 import App from '../App/App';
 import SignupInfluencer from '../Auth/Influencer/Signup/SignupInfluencer';
@@ -34,7 +34,7 @@ const RootRoutes = ({ session, refetch }) => {
       <GlobalStyle />
       <ScrollToTop>
         <Switch>
-          {session && session.getCurrentInfluencer ? (
+          {/* {session && session.getCurrentInfluencer ? (
             <Route
               exact
               render={() => <App authUser={session.getCurrentInfluencer} />}
@@ -52,8 +52,8 @@ const RootRoutes = ({ session, refetch }) => {
                 component={InfluencerSignupStepper}
               />
             </>
-          )}
-          {/* <Route path="/" exact component={App} />
+          )} */}
+          <Route path="/" exact component={App} />
           <Route
             path="/signin"
             render={() => <SigninInfluencer refetch={refetch} />}
@@ -70,7 +70,7 @@ const RootRoutes = ({ session, refetch }) => {
           <Route
             path="/InfluencerSignupStepper"
             component={InfluencerSignupStepper}
-          /> */}
+          />
           {/* <Route path="/AuthChoice" component={AuthChoice} /> */}
           <Redirect to="/" />
         </Switch>

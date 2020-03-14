@@ -1,6 +1,6 @@
 import React from 'react';
-import icons from '../img/sprite.svg';
-import { Opacity } from '../animations';
+import icons from '../../images/sprite.svg';
+import { Opacity } from '../../animations';
 
 const InConstruction = () => {
   return (

@@ -58,7 +58,7 @@ const GoToDashboard = props => {
             variant="contained"
             color="secondary"
             onClick={handleClick}
-            style={{ marginBottom: '2rem' }}
+            style={{ marginTop: '1rem', marginBottom: '5rem' }}
           >
             Go to Dashboard
           </Button>

@@ -11,7 +11,7 @@ import { Container, Title, Subtitle } from '../../styles/Auth/Auth';
 
 import { OpacityScaleMedium } from '../../animations';
 
-import Error from '../../components/Error';
+import Error from '../../Components/Error';
 
 import { Mutation } from 'react-apollo';
 

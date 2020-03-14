@@ -6,7 +6,7 @@ const Title = styled.h3`
   /* font-family: 'Roboto Mono', monospace; */
   color: ${p => p.theme.colors.grey.dark3};
   font-weight: 100;
-  font-size: 4rem;
+  font-size: 5rem;
   letter-spacing: 0.8rem;
   margin: -7rem auto 0;
   /* font-style: oblique 10deg; */

@@ -1,16 +1,15 @@
 import React, { useState, useEffect } from 'react';
-import user from '../../img/user-6.jpg';
-import icons from '../../img/sprite.svg';
-import '../../App.css';
+import user from '../../images/user-6.jpg';
+import icons from '../../images/sprite.svg';
 import '../../styles/css/style.css';
 
 import { OpacityScaleMain } from '../../animations';
 
 import SidebarWithTitle from '../Layout/SidebarWithTitle';
 
-import InConstruction from '../../Pages/InConstruction';
+import InConstruction from '../Pages/InConstruction';
 
-import Welcome from '../../Pages/Welcome';
+import Welcome from '../Pages/Welcome';
 
 const DashboardSide = () => {
   const [welcome, setWelcome] = useState(true);

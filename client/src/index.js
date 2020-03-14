@@ -1,6 +1,5 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
 import * as serviceWorker from './serviceWorker';
 
 import 'normalize.css';
@@ -9,7 +8,7 @@ import { ThemeProvider } from 'styled-components';
 
 import RootRoutes from './Routes/RootRoutes';
 
-import withSession from './components/utils/withSession';
+import withSession from './Components/utils/withSession';
 
 import ApolloClient from 'apollo-boost';
 import { ApolloProvider } from 'react-apollo';

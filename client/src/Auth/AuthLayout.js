@@ -1,6 +1,6 @@
 import React from 'react';
 
-import ScrollToTop from '../components/ScrollToTop';
+import ScrollToTop from '../Components/ScrollToTop';
 
 import AuthRoutes from '../Routes/AuthRoutes';
 

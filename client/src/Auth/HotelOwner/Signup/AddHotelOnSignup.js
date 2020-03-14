@@ -14,14 +14,14 @@ import { Container, Title, Subtitle } from '../../../styles/Auth/Auth';
 
 import { OpacityScaleMedium } from '../../../animations';
 
-import Error from '../../../components/Error';
+import Error from '../../../Components/Error';
 
 import { Query, Mutation } from 'react-apollo';
 
 import { ADD_HOTEL } from '../../../graphql/hotel';
 import { GET_HOTEL_OWNER_BY_USERNAME } from '../../../graphql/hotelOwner';
 
-import withHotelOwner from '../../../components/utils/withHotelOwner';
+import withHotelOwner from '../../../Components/utils/withHotelOwner';
 
 // Styles
 const Form = styled.form`

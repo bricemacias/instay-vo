@@ -15,7 +15,7 @@ import { OpacityScaleFull } from '../animations';
 import SigninInfluencer from './Influencer/SigninInfluencer';
 import SigninHotelOwner from './HotelOwner/SigninHotelOwner';
 
-import Error from '../components/Error';
+import Error from '../Components/Error';
 
 const Grid = styled.div`
   display: grid;
