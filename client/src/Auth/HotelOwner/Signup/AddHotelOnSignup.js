@@ -1,16 +1,13 @@
-import React, { useState, useEffect } from 'react';
-import { useQuery } from '@apollo/react-hooks';
-// import { withRouter } from 'react-router-dom';
+import React, { useState } from 'react';
 
 import TextField from '@material-ui/core/TextField';
-import Checkbox from '@material-ui/core/Checkbox';
-import FormControlLabel from '@material-ui/core/FormControlLabel';
+
 import Button from '@material-ui/core/Button';
-import { ThemeProvider, createMuiTheme } from '@material-ui/core/styles';
+import { ThemeProvider } from '@material-ui/core/styles';
 import { MaterialTheme } from '../../../styles/MaterialThemes';
 
 import styled from 'styled-components';
-import { Container, Title, Subtitle } from '../../../styles/Auth/Auth';
+import { Container, Title, Subtitle } from '../../../styles/Auth';
 
 import { OpacityScaleMedium } from '../../../animations';
 
@@ -19,7 +16,6 @@ import Error from '../../../Components/Error';
 import { Query, Mutation } from 'react-apollo';
 
 import { ADD_HOTEL } from '../../../graphql/hotel';
-import { GET_HOTEL_OWNER_BY_USERNAME } from '../../../graphql/hotelOwner';
 
 import withHotelOwner from '../../../Components/utils/withHotelOwner';
 
@@ -62,44 +58,9 @@ const AddError = styled.div`
 
 // Component
 const AddHotelOnSignup = props => {
-  // const { loading, error, data } = useQuery(GET_HOTEL_OWNER_BY_USERNAME, {
-  //   variables: { username: props.username },
-  //   fetchPolicy: 'no-cache'
-  // });
   const [name, setName] = useState('');
   const [location, setLocation] = useState('');
   const [website, setWebsite] = useState('');
-
-  // useEffect(() => {
-
-  //   // const asyncFetch = async () => {
-  //   //   <Query query={GET_HOTEL_OWNER_BY_USERNAME}>
-  //   //     {(getHotelOwnerByUsername, { data, loading, error }) => {
-  //   //       return getHotelOwnerByUsername({
-  //   //         variables: { username: props.username }
-  //   //       }).then(async ({ data }) => {
-  //   //         console.log(data);
-  //   //         // setOwner(data.id);
-  //   //       });
-  //   //     }}
-  //   //   </Query>;
-  //     // const data = await props.refetch();
-  //     // console.log(data);
-  // // };
-  //   // asyncFetch();
-  // }, []);
-
-  // const getOwner = async () => {
-  //   const { loading, error, data } = useQuery(GET_HOTEL_OWNER_BY_USERNAME, {
-  //     variables: { username: props.username },
-  //     fetchPolicy: 'no-cache'
-  //   });
-  //   return data;
-  // };
-
-  // useEffect(() => {
-  //   console.log(data.getHotelOwnerByUsername.id);
-  // }, []);
 
   const clearState = () => {
     setName('');

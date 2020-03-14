@@ -1,13 +1,13 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { withRouter } from 'react-router-dom';
 
 import Typography from '@material-ui/core/Typography';
 import Button from '@material-ui/core/Button';
-import { ThemeProvider, createMuiTheme } from '@material-ui/core/styles';
+import { ThemeProvider } from '@material-ui/core/styles';
 import { MaterialTheme } from '../../../styles/MaterialThemes';
 
 import styled from 'styled-components';
-import { Container, Title, Subtitle } from '../../../styles/Auth/Auth';
+import { Container, Title, Subtitle } from '../../../styles/Auth';
 
 import { OpacityScaleMedium } from '../../../animations';
 

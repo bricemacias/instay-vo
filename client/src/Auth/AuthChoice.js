@@ -1,21 +1,14 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { withRouter } from 'react-router-dom';
-import { Switch, Route, Redirect } from 'react-router-dom';
 
-import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
 import { ThemeProvider, createMuiTheme } from '@material-ui/core/styles';
 import { MaterialTheme } from '../styles/MaterialThemes';
 
 import styled from 'styled-components';
-import { Container, Title, Subtitle } from '../styles/Auth/Auth';
+import { Container, Title, Subtitle } from '../styles/Auth';
 
 import { OpacityScaleFull } from '../animations';
-
-import SigninInfluencer from './Influencer/SigninInfluencer';
-import SigninHotelOwner from './HotelOwner/SigninHotelOwner';
-
-import Error from '../Components/Error';
 
 const Grid = styled.div`
   display: grid;

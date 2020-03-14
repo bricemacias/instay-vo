@@ -3,11 +3,11 @@ import { withRouter } from 'react-router-dom';
 
 import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
-import { ThemeProvider, createMuiTheme } from '@material-ui/core/styles';
+import { ThemeProvider } from '@material-ui/core/styles';
 import { MaterialTheme } from '../../styles/MaterialThemes';
 
 import styled from 'styled-components';
-import { Container, Title, Subtitle } from '../../styles/Auth/Auth';
+import { Container, Title, Subtitle } from '../../styles/Auth';
 
 import { OpacityScaleMedium } from '../../animations';
 
