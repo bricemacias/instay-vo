@@ -11,6 +11,7 @@
     "@testing-library/react": "^9.4.0",
     "@testing-library/user-event": "^8.1.0",
     "apollo-boost": "^0.4.7",
+    "apollo-cache-inmemory": "^1.6.5",
     "axios": "^0.19.2",
     "framer-motion": "^1.9.1",
     "jwt-decode": "^2.2.0",

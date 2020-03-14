@@ -5,7 +5,7 @@ const HotelSchema = gql`
   type Hotel {
     id: ID!
     name: String!
-    owner: HotelOwner!
+    owner: ID!
     avatar: String
     coverImages: [String]
     location: String!
@@ -19,7 +19,11 @@ const HotelSchema = gql`
   extend type Query {
     getAllHotels: [Hotel]!
 
-    getCurrentHotel: Hotel
+    # getHotelsByOwner: [Hotel]!
+
+    # getHotelByName: Hotel
+
+    # getHotelById: Hotel
   }
 
   # Mutations
@@ -27,12 +31,12 @@ const HotelSchema = gql`
   extend type Mutation {
     addHotel(
       name: String!
-      owner: String!
+      owner: ID!
       location: String!
       website: String!
       avatar: String
       coverImages: String
-      descritpion: String
+      description: String
     ): Hotel
   }
 `;

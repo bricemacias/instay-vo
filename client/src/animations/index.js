@@ -7,7 +7,7 @@ export const OpacityScaleFull = props => {
       initial={{ opacity: 0, scale: 0.7 }}
       animate={{ opacity: 1, scale: 1 }}
       exit={{ opacity: 0 }}
-      transition={{ duration: 1 }}
+      transition={{ duration: 0.8 }}
     >
       {props.children}
     </motion.div>
@@ -17,7 +17,7 @@ export const OpacityScaleFull = props => {
 export const OpacityScaleMedium = props => {
   return (
     <motion.div
-      initial={{ opacity: 0.5, scale: 0.8 }}
+      initial={{ opacity: 0.5, scale: 0.9 }}
       animate={{ opacity: 1, scale: 1 }}
       exit={{ opacity: 0 }}
       transition={{ duration: 0.7 }}
@@ -47,6 +47,19 @@ export const OpacityDelayStepper = props => {
       animate={{ opacity: 1, scale: 1 }}
       exit={{ opacity: 0 }}
       transition={{ duration: 1.5, delay: 0.3 }}
+    >
+      {props.children}
+    </motion.div>
+  );
+};
+
+export const Opacity = props => {
+  return (
+    <motion.div
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+      transition={{ duration: props.duration }}
     >
       {props.children}
     </motion.div>

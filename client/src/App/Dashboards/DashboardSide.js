@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import user from '../../img/user-6.jpg';
 import icons from '../../img/sprite.svg';
 import '../../App.css';
@@ -10,7 +10,16 @@ import SidebarWithTitle from '../Layout/SidebarWithTitle';
 
 import InConstruction from '../../Pages/InConstruction';
 
+import Welcome from '../../Pages/Welcome';
+
 const DashboardSide = () => {
+  const [welcome, setWelcome] = useState(true);
+
+  useEffect(() => {
+    setTimeout(function() {
+      setWelcome(false);
+    }, 5000);
+  }, []);
   return (
     <OpacityScaleMain>
       <div className="container" style={{ display: 'flex' }}>
@@ -60,7 +69,7 @@ const DashboardSide = () => {
           </header>
           <div className="content" style={{ flex: 1 }}>
             <main className="hotel-view">
-              <InConstruction />
+              {welcome ? <Welcome /> : <InConstruction />}
             </main>
           </div>
         </div>

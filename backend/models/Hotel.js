@@ -5,12 +5,14 @@ const Schema = mongoose.Schema;
 const HotelSchema = new Schema({
   name: {
     type: String,
-    required: true
+    required: true,
+    unique: true
   },
   owner: {
     type: Schema.Types.ObjectId,
     ref: 'HotelOwner'
   },
+  // ownerId: { type: String, required: true },
   avatar: String,
   coverImages: [String],
   location: {

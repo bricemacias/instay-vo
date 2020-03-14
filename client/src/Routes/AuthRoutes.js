@@ -5,6 +5,7 @@ import AuthChoice from '../Auth/AuthChoice';
 import SigninInfluencer from '../Auth/Influencer/SigninInfluencer';
 import SigninHotelOwner from '../Auth/HotelOwner/SigninHotelOwner';
 import InfluencerSignupStepper from '../Auth/Influencer/Signup/InfluencerSignupStepper';
+import HotelOwnerSignupStepper from '../Auth/HotelOwner/Signup/HotelOwnerSignupStepper';
 
 const AuthRoutes = ({ refetch }) => {
   return (
@@ -25,6 +26,11 @@ const AuthRoutes = ({ refetch }) => {
           exact
           path="/SignupInfluencer"
           render={() => <InfluencerSignupStepper refetch={refetch} />}
+        />
+        <Route
+          exact
+          path="/SignupHotelOwner"
+          render={() => <HotelOwnerSignupStepper refetch={refetch} />}
         />
         <Redirect to="/" />
       </Switch>

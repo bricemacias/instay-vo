@@ -23,6 +23,8 @@ const HotelOwnerSchema = gql`
     getAllHotelOwners: [HotelOwner]!
 
     getCurrentHotelOwner: HotelOwner
+
+    getHotelOwnerByUsername(username: String!): HotelOwner
   }
 
   # Mutations

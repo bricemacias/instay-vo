@@ -7,6 +7,7 @@ import { gql } from 'apollo-boost';
 export const GET_ALL_HOTEL_OWNERS = gql`
   query {
     getAllHotelOwner {
+      id
       firstName
       lastName
       username
@@ -21,9 +22,20 @@ export const GET_ALL_HOTEL_OWNERS = gql`
 export const GET_CURRENT_HOTEL_OWNER = gql`
   query {
     getCurrentHotelOwner {
+      id
       username
       email
       joinDate
+    }
+  }
+`;
+
+export const GET_HOTEL_OWNER_BY_USERNAME = gql`
+  query($username: String!) {
+    getHotelOwnerByUsername(username: $username) {
+      id
+      username
+      email
     }
   }
 `;

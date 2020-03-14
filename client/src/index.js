@@ -19,8 +19,35 @@ import { ApolloProvider as ApolloHooksProvider } from '@apollo/react-hooks';
 
 // import { createHttpLink } from 'apollo-link-http';
 
+import {
+  InMemoryCache,
+  IntrospectionFragmentMatcher
+} from 'apollo-cache-inmemory';
+
+const fragmentMatcher = new IntrospectionFragmentMatcher({
+  introspectionQueryResultData: {
+    __schema: {
+      types: [
+        {
+          kind: 'UNION',
+          name: 'AdsReturn',
+          possibleTypes: [
+            {
+              name: 'Ads'
+            },
+            {
+              name: 'Error'
+            }
+          ]
+        }
+      ]
+    }
+  }
+});
+
 const client = new ApolloClient({
   // cache: new InMemoryCache(),
+  cache: new InMemoryCache({ fragmentMatcher }),
 
   // link: createHttpLink({ uri: 'http://localhost:4444/graphql' }),
   // //uri: 'https://instay-v0.herokuapp.com/graphql',

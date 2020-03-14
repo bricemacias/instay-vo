@@ -13,6 +13,7 @@ export const GET_CURRENT_INFLUENCER_OR_HOTEL_OWNER = gql`
       joinDate
     }
     getCurrentHotelOwner {
+      id
       username
       email
       joinDate

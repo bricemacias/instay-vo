@@ -39,9 +39,15 @@ const Password = styled.div`
   grid-column: 1/3;
 `;
 
+const SignupButton = styled.div`
+  grid-row: 3/4;
+  grid-column: 1/2;
+  justify-self: center;
+`;
+
 const SigninButton = styled.div`
   grid-row: 3/4;
-  grid-column: 1/3;
+  grid-column: 2/3;
   justify-self: center;
 `;
 
@@ -114,6 +120,14 @@ const SigninHotelOwner = props => {
                       onChange={e => setPassword(e.target.value)}
                     />
                   </Password>
+                  <SignupButton>
+                    <Button
+                      variant="contained"
+                      onClick={e => props.history.push('/SignupHotelOwner')}
+                    >
+                      SIGN UP
+                    </Button>
+                  </SignupButton>
                   <SigninButton>
                     <Button
                       type="submit"
