@@ -23,7 +23,7 @@ html {
   /* @media only screen and (max-width: $bp-largest) {
     font-size: 70%;
   } */
-  @media only screen and (max-width: $bp-large) {
+  @media only screen and (max-width: ${theme.screen.large}) {
     font-size: 50%;
   }
 }
@@ -37,7 +37,6 @@ body {
   margin: 0;
   font-weight: 400;
   line-height: 1.6;
-  color: var(--color-grey-dark-2);
   color: ${theme.colors.grey.dark2};
   background-image: linear-gradient(
     to right bottom,

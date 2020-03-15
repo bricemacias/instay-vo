@@ -4,20 +4,20 @@ import TextField from '@material-ui/core/TextField';
 
 import Button from '@material-ui/core/Button';
 import { ThemeProvider } from '@material-ui/core/styles';
-import { MaterialTheme } from '../../../styles/MaterialThemes';
+import { MaterialTheme } from 'styles/MaterialThemes';
 
 import styled from 'styled-components';
-import { Container, Title, Subtitle } from '../../../styles/Auth';
+import { Container, Title, Subtitle } from 'styles/auth';
 
-import { OpacityScaleMedium } from '../../../animations';
+import { OpacityScaleMedium } from 'animations';
 
-import Error from '../../../Components/Error';
+import Error from 'Components/Error';
 
 import { Query, Mutation } from 'react-apollo';
 
-import { ADD_HOTEL } from '../../../graphql/hotel';
+import { ADD_HOTEL } from 'graphql/hotel';
 
-import withHotelOwner from '../../../Components/utils/withHotelOwner';
+import withHotelOwner from 'Components/utils/withHotelOwner';
 
 // Styles
 const Form = styled.form`

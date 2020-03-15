@@ -4,18 +4,18 @@ import { withRouter } from 'react-router-dom';
 import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
 import { ThemeProvider, createMuiTheme } from '@material-ui/core/styles';
-import { MaterialTheme } from '../../styles/MaterialThemes';
+import { MaterialTheme } from 'styles/MaterialThemes';
 
 import styled from 'styled-components';
-import { Container, Title, Subtitle } from '../../styles/Auth';
+import { Container, Title, Subtitle } from 'styles/auth';
 
-import { OpacityScaleMedium } from '../../animations';
+import { OpacityScaleMedium } from 'animations';
 
-import Error from '../../Components/Error';
+import Error from 'Components/Error';
 
 import { Mutation } from 'react-apollo';
 
-import { SIGNIN_INFLUENCER } from '../../graphql/influencer';
+import { SIGNIN_INFLUENCER } from 'graphql/influencer';
 
 // Styles
 const Form = styled.form`

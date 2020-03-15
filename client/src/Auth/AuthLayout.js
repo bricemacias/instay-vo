@@ -1,8 +1,8 @@
 import React from 'react';
 
-import ScrollToTop from '../Components/ScrollToTop';
+import ScrollToTop from 'Components/ScrollToTop';
 
-import AuthRoutes from '../Routes/AuthRoutes';
+import AuthRoutes from 'Routes/AuthRoutes';
 
 const AuthLayout = ({ refetch }) => {
   return (

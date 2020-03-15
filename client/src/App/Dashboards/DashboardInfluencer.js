@@ -1,10 +1,7 @@
 import React, { useState, useEffect } from 'react';
-import user from 'images/user-6.jpg';
-import icons from 'images/sprite.svg';
 
 import { Container, Content, MainContent, MainView } from 'styles/layout';
 
-import Search from 'Components/Search';
 import Header from '../Layout/Header/Header';
 import { SidebarInfluencer as Sidebar } from '../Layout/Sidebar/SidebarInfluencer';
 
@@ -13,7 +10,7 @@ import Welcome from '../Pages/Welcome';
 
 import { OpacityScaleMain } from 'animations';
 
-const DashboardSide = () => {
+const DashboardInfluencer = () => {
   const [welcome, setWelcome] = useState(true);
 
   useEffect(() => {
@@ -36,4 +33,4 @@ const DashboardSide = () => {
   );
 };
 
-export default DashboardSide;
+export default DashboardInfluencer;

@@ -11,7 +11,7 @@ import {
   SideNavText
 } from 'styles/layout';
 
-const SidebarWithTitle = () => {
+export const SidebarHotelOwner = () => {
   return (
     <>
       <Sidebar>
@@ -23,7 +23,7 @@ const SidebarWithTitle = () => {
                 <SideNavIcon>
                   <use xlinkHref={`${icons}#icon-list`} />
                 </SideNavIcon>
-                <SideNavText>Your campaign</SideNavText>
+                <SideNavText>Your campaigns</SideNavText>
               </SideNavLink>
             </SideNavItem>
             <SideNavItem>
@@ -71,7 +71,7 @@ const SidebarWithTitle = () => {
 
         <SideNav>
           <SideNavItem>
-            <SideNavLink exact to="/FAQ">
+            <SideNavLink exact to="/HelpCenter">
               <SideNavIcon>
                 <use xlinkHref={`${icons}#icon-question`} />
               </SideNavIcon>
@@ -91,5 +91,3 @@ const SidebarWithTitle = () => {
     </>
   );
 };
-
-export default SidebarWithTitle;

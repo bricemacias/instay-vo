@@ -13,7 +13,7 @@ import { GlobalStyle } from '../styles/GlobalStyles';
 
 import ScrollToTop from '../Components/ScrollToTop';
 
-import App from '../App/App';
+import App from '../App';
 import SignupInfluencer from '../Auth/Influencer/Signup/SignupInfluencer';
 import SigninInfluencer from '../Auth/Influencer/SigninInfluencer';
 import InstagramCheck from '../Auth/Influencer/Signup/InstagramCheck';
@@ -23,7 +23,7 @@ import InfluencerSignupStepper from '../Auth/Influencer/Signup/InfluencerSignupS
 import SignupHotelOwner from '../Auth/HotelOwner/Signup/SignupHotelOwner';
 import HotelOwnerSignupStepper from '../Auth/HotelOwner/Signup/HotelOwnerSignupStepper';
 
-import AuthLayout from '../Auth/AuthLayout';
+import AuthLayout from '../Auth';
 
 const RootRoutes = ({ session, refetch }) => {
   // const { session } = useQuery(GET_CURRENT_INFLUENCER);
@@ -34,26 +34,32 @@ const RootRoutes = ({ session, refetch }) => {
       <GlobalStyle />
       <ScrollToTop>
         <Switch>
-          {/* {session && session.getCurrentInfluencer ? (
+          {session && session.getCurrentInfluencer ? (
             <Route
               exact
-              render={() => <App authUser={session.getCurrentInfluencer} />}
+              render={() => (
+                <App
+                  authUser={session.getCurrentInfluencer}
+                  type="influencer"
+                />
+              )}
             />
           ) : session && session.getCurrentHotelOwner ? (
             <Route
               exact
-              render={() => <App authUser={session.getCurrentHotelOwner} />}
+              render={() => (
+                <App
+                  authUser={session.getCurrentHotelOwner}
+                  type="hotelowner"
+                />
+              )}
             />
           ) : (
             <>
               <Route exact render={() => <AuthLayout refetch={refetch} />} />
-              <Route
-                path="/InfluencerSignupStepper"
-                component={InfluencerSignupStepper}
-              />
             </>
-          )} */}
-          <Route path="/" exact component={App} />
+          )}
+          {/* <Route path="/" exact component={App} />
           <Route
             path="/signin"
             render={() => <SigninInfluencer refetch={refetch} />}
@@ -71,7 +77,7 @@ const RootRoutes = ({ session, refetch }) => {
             path="/InfluencerSignupStepper"
             component={InfluencerSignupStepper}
           />
-          {/* <Route path="/AuthChoice" component={AuthChoice} /> */}
+          <Route path="/AuthChoice" component={AuthChoice} /> */}
           <Redirect to="/" />
         </Switch>
       </ScrollToTop>

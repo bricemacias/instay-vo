@@ -11,7 +11,7 @@ import {
   SideNavText
 } from 'styles/layout';
 
-const SidebarWithTitle = () => {
+export const SidebarInfluencer = () => {
   return (
     <>
       <Sidebar>
@@ -23,31 +23,23 @@ const SidebarWithTitle = () => {
                 <SideNavIcon>
                   <use xlinkHref={`${icons}#icon-list`} />
                 </SideNavIcon>
-                <SideNavText>Your campaign</SideNavText>
+                <SideNavText>Your campaigns</SideNavText>
               </SideNavLink>
             </SideNavItem>
             <SideNavItem>
-              <SideNavLink exact to="/Requests">
+              <SideNavLink exact to="/Bookings">
                 <SideNavIcon>
-                  <use xlinkHref={`${icons}#icon-user1`} />
+                  <use xlinkHref={`${icons}#icon-aircraft-take-off`} />
                 </SideNavIcon>
-                <SideNavText>Requests</SideNavText>
+                <SideNavText>Bookings</SideNavText>
               </SideNavLink>
             </SideNavItem>
             <SideNavItem>
-              <SideNavLink exact to="/Collaborations">
+              <SideNavLink exact to="/Favorites">
                 <SideNavIcon>
-                  <use xlinkHref={`${icons}#icon-shield`} />
+                  <use xlinkHref={`${icons}#icon-star`} />
                 </SideNavIcon>
-                <SideNavText>Collaborations</SideNavText>
-              </SideNavLink>
-            </SideNavItem>
-            <SideNavItem>
-              <SideNavLink exact to="/Calendar">
-                <SideNavIcon>
-                  <use xlinkHref={`${icons}#icon-calendar`} />
-                </SideNavIcon>
-                <SideNavText>Calendar</SideNavText>
+                <SideNavText>Favorites</SideNavText>
               </SideNavLink>
             </SideNavItem>
             <SideNavItem>
@@ -59,11 +51,11 @@ const SidebarWithTitle = () => {
               </SideNavLink>
             </SideNavItem>
             <SideNavItem>
-              <SideNavLink exact to="/Analytics">
+              <SideNavLink exact to="/Calendar">
                 <SideNavIcon>
-                  <use xlinkHref={`${icons}#icon-bar-graph`} />
+                  <use xlinkHref={`${icons}#icon-calendar`} />
                 </SideNavIcon>
-                <SideNavText>Analytics</SideNavText>
+                <SideNavText>Calendar</SideNavText>
               </SideNavLink>
             </SideNavItem>
           </SideNav>
@@ -71,7 +63,7 @@ const SidebarWithTitle = () => {
 
         <SideNav>
           <SideNavItem>
-            <SideNavLink exact to="/FAQ">
+            <SideNavLink exact to="/HelpCenter">
               <SideNavIcon>
                 <use xlinkHref={`${icons}#icon-question`} />
               </SideNavIcon>
@@ -91,5 +83,3 @@ const SidebarWithTitle = () => {
     </>
   );
 };
-
-export default SidebarWithTitle;

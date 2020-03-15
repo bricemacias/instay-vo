@@ -34,6 +34,8 @@ export default {
       light: '#dae9f4',
       main: '#7f9eb2',
       dark: '#274c5e',
+      lighterdark: '#3D7794',
+      lighterdark1: '#4587A8',
       contrastText: '#fff'
     },
 

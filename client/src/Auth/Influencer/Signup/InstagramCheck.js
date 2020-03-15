@@ -10,12 +10,12 @@ import InstagramIcon from '@material-ui/icons/Instagram';
 import InfoIcon from '@material-ui/icons/Info';
 import AlternateEmailIcon from '@material-ui/icons/AlternateEmail';
 import { ThemeProvider } from '@material-ui/core/styles';
-import { MaterialTheme } from '../../../styles/MaterialThemes';
+import { MaterialTheme } from 'styles/MaterialThemes';
 
 import styled from 'styled-components';
-import { Container, Title, Subtitle } from '../../../styles/Auth';
+import { Container, Title, Subtitle } from 'styles/auth';
 
-import { OpacityScaleMedium } from '../../../animations';
+import { OpacityScaleMedium } from 'animations';
 
 // Styles
 const InstagramInput = styled.div`
