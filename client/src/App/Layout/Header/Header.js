@@ -1,7 +1,7 @@
 import React from 'react';
 
-import user from 'images/user-6.jpg';
-import icons from 'images/sprite.svg';
+import user from '../../../images/user-6.jpg';
+import icons from '../../../images/sprite.svg';
 
 import {
   Header as HeaderLayout,
@@ -11,9 +11,9 @@ import {
   UserNavNotification,
   UserNavUserPhoto,
   UserNavUserName
-} from 'styles/layout';
+} from '../../../styles/layout';
 
-import Search from 'Components/Search';
+import Search from '../../../Components/Search';
 
 const Header = props => {
   return (

@@ -10,7 +10,7 @@ import StepConnector from '@material-ui/core/StepConnector';
 import Typography from '@material-ui/core/Typography';
 import { makeStyles, withStyles } from '@material-ui/core/styles';
 
-import { OpacityDelayStepper } from 'animations';
+import { OpacityDelayStepper } from '../../../animations';
 
 import SignupHotelOwner from './SignupHotelOwner';
 import AddHotelOnSignup from './AddHotelOnSignup';

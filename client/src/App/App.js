@@ -1,8 +1,8 @@
 import React from 'react';
 
-import ScrollToTop from 'Components/ScrollToTop';
+import ScrollToTop from '../Components/ScrollToTop';
 
-import AppRoutes from 'Routes/AppRoutes';
+import AppRoutes from '../Routes/AppRoutes';
 
 const AppLayout = props => {
   return (

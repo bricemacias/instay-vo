@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 
-import { Container, Content, MainContent, MainView } from 'styles/layout';
+import { Container, Content, MainContent, MainView } from '../../styles/layout';
 
 import Header from '../Layout/Header/Header';
 import { SidebarInfluencer as Sidebar } from '../Layout/Sidebar/SidebarInfluencer';
@@ -8,7 +8,7 @@ import { SidebarInfluencer as Sidebar } from '../Layout/Sidebar/SidebarInfluence
 import InConstruction from '../Pages/InConstruction';
 import Welcome from '../Pages/Welcome';
 
-import { OpacityScaleMain } from 'animations';
+import { OpacityScaleMain } from '../../animations';
 
 const DashboardInfluencer = () => {
   const [welcome, setWelcome] = useState(true);

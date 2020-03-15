@@ -1,5 +1,5 @@
 import React from 'react';
-import icons from 'images/sprite.svg';
+import icons from '../../../images/sprite.svg';
 
 import {
   Sidebar,
@@ -9,7 +9,7 @@ import {
   SideNavLink,
   SideNavIcon,
   SideNavText
-} from 'styles/layout';
+} from '../../../styles/layout';
 
 export const SidebarInfluencer = () => {
   return (

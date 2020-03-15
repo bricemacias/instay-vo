@@ -1,14 +1,14 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import * as serviceWorker from './serviceWorker';
+import * as serviceWorker from 'serviceWorker';
 
 import 'normalize.css';
-import theme from './styles/theme';
+import theme from 'styles/theme';
 import { ThemeProvider } from 'styled-components';
 
-import RootRoutes from './Routes/RootRoutes';
+import RootRoutes from 'Routes/RootRoutes';
 
-import withSession from './Components/utils/withSession';
+import withSession from 'Components/utils/withSession';
 
 import ApolloClient from 'apollo-boost';
 import { ApolloProvider } from 'react-apollo';
@@ -49,8 +49,8 @@ const client = new ApolloClient({
   cache: new InMemoryCache({ fragmentMatcher }),
 
   // link: createHttpLink({ uri: 'http://localhost:4444/graphql' }),
-  // //uri: 'https://instay-v0.herokuapp.com/graphql',
-  uri: 'http://localhost:4444/graphql',
+  uri: 'https://instay-v0.herokuapp.com/graphql',
+  //uri: 'http://localhost:4444/graphql',
   fetchOptions: {
     credentials: 'include'
   },

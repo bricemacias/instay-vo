@@ -5,18 +5,18 @@ import Checkbox from '@material-ui/core/Checkbox';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 import Button from '@material-ui/core/Button';
 import { ThemeProvider } from '@material-ui/core/styles';
-import { MaterialTheme } from 'styles/MaterialThemes';
+import { MaterialTheme } from '../../../styles/MaterialThemes';
 
 import styled from 'styled-components';
-import { Container, Title, Subtitle } from 'styles/auth';
+import { Container, Title, Subtitle } from '../../../styles/auth';
 
-import { OpacityScaleMedium } from 'animations';
+import { OpacityScaleMedium } from '../../../animations';
 
-import Error from 'Components/Error';
+import Error from '../../../Components/Error';
 
 import { Mutation } from 'react-apollo';
 
-import { SIGNUP_HOTEL_OWNER } from 'graphql/hotelOwner';
+import { SIGNUP_HOTEL_OWNER } from '../../../graphql/hotelOwner';
 
 // Styles
 const Form = styled.form`

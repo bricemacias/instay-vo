@@ -6,7 +6,7 @@ import {
   SearchInput,
   SearchButton,
   SearchIcon
-} from '../styles/components';
+} from 'styles/components';
 
 const Search = props => {
   return (
