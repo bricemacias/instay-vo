@@ -4,6 +4,7 @@ const HotelOwnerSchema = gql`
   # Model Objects
 
   type HotelOwner {
+    id: ID!
     firstName: String!
     lastName: String!
     username: String!
@@ -12,14 +13,18 @@ const HotelOwnerSchema = gql`
     hotels: [Hotel]
     password: String!
     joinDate: String
+    verified: String
+    hasAccess: String
   }
 
   # Queries
 
   extend type Query {
-    getAllHotelOwners: [Influencer]!
+    getAllHotelOwners: [HotelOwner]!
 
-    getCurrentHotelOwner: Influencer
+    getCurrentHotelOwner: HotelOwner
+
+    getHotelOwnerByUsername(username: String!): HotelOwner
   }
 
   # Mutations

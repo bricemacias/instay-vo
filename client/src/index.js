@@ -1,11 +1,14 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
 import * as serviceWorker from './serviceWorker';
 
-import Routes from './Routes/Routes';
+import 'normalize.css';
+import theme from './styles/theme';
+import { ThemeProvider } from 'styled-components';
 
-import withSession from './components/utils/withSession';
+import RootRoutes from './Routes/RootRoutes';
+
+import withSession from './Components/utils/withSession';
 
 import ApolloClient from 'apollo-boost';
 import { ApolloProvider } from 'react-apollo';
@@ -15,8 +18,35 @@ import { ApolloProvider as ApolloHooksProvider } from '@apollo/react-hooks';
 
 // import { createHttpLink } from 'apollo-link-http';
 
+import {
+  InMemoryCache,
+  IntrospectionFragmentMatcher
+} from 'apollo-cache-inmemory';
+
+const fragmentMatcher = new IntrospectionFragmentMatcher({
+  introspectionQueryResultData: {
+    __schema: {
+      types: [
+        {
+          kind: 'UNION',
+          name: 'AdsReturn',
+          possibleTypes: [
+            {
+              name: 'Ads'
+            },
+            {
+              name: 'Error'
+            }
+          ]
+        }
+      ]
+    }
+  }
+});
+
 const client = new ApolloClient({
   // cache: new InMemoryCache(),
+  cache: new InMemoryCache({ fragmentMatcher }),
 
   // link: createHttpLink({ uri: 'http://localhost:4444/graphql' }),
   // //uri: 'https://instay-v0.herokuapp.com/graphql',
@@ -44,12 +74,14 @@ const client = new ApolloClient({
   }
 });
 
-const RouteWithSession = withSession(Routes);
+const RouteWithSession = withSession(RootRoutes);
 
 ReactDOM.render(
   <ApolloProvider client={client}>
     <ApolloHooksProvider client={client}>
-      <RouteWithSession />
+      <ThemeProvider theme={theme}>
+        <RouteWithSession />
+      </ThemeProvider>
     </ApolloHooksProvider>
   </ApolloProvider>,
   document.getElementById('root')

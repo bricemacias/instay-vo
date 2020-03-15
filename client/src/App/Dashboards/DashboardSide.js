@@ -1,67 +1,38 @@
-import React from 'react';
-import user from '../../img/user-6.jpg';
-import icons from '../../img/sprite.svg';
-import '../../App.css';
-import '../../styles/css/style.css';
+import React, { useState, useEffect } from 'react';
+import user from 'images/user-6.jpg';
+import icons from 'images/sprite.svg';
 
-import SidebarWithTitle from '../Layout/SidebarWithTitle';
+import { Container, Content, MainContent, MainView } from 'styles/layout';
 
-import InConstruction from '../../Pages/InConstruction';
+import Search from 'Components/Search';
+import Header from '../Layout/Header/Header';
+import { SidebarInfluencer as Sidebar } from '../Layout/Sidebar/SidebarInfluencer';
+
+import InConstruction from '../Pages/InConstruction';
+import Welcome from '../Pages/Welcome';
+
+import { OpacityScaleMain } from 'animations';
 
 const DashboardSide = () => {
+  const [welcome, setWelcome] = useState(true);
+
+  useEffect(() => {
+    setTimeout(function() {
+      setWelcome(false);
+    }, 5000);
+  }, []);
   return (
-    <div className="container" style={{ display: 'flex' }}>
-      <SidebarWithTitle />
-      <div
-        className="content"
-        style={{
-          flexDirection: 'column',
-          flex: 1
-        }}
-      >
-        <header className="header">
-          <form action="#" className="search search--side">
-            <input
-              type="text"
-              className="search__input"
-              placeholder="Search hotels or inluencers"
-            />
-            <button className="search__button">
-              <svg className="search__icon">
-                <use xlinkHref={`${icons}#icon-magnifying-glass`} />
-              </svg>
-            </button>
-          </form>
-          <nav className="user-nav">
-            <div className="user-nav__icon-box">
-              <svg className="user-nav__icon">
-                <use xlinkHref={`${icons}#icon-bell`} />
-              </svg>
-              <span className="user-nav__notification">7</span>
-            </div>
-            <div className="user-nav__icon-box">
-              <svg className="user-nav__icon">
-                <use xlinkHref={`${icons}#icon-bubbles2`} />
-              </svg>
-              <span className="user-nav__notification">13</span>
-            </div>
-            <div className="user-nav__user">
-              <img
-                src={user}
-                alt="User photo"
-                className="user-nav__user-photo"
-              />
-              <span className="user-nav__user-name">Sarah</span>
-            </div>
-          </nav>
-        </header>
-        <div className="content" style={{ flex: 1 }}>
-          <main className="hotel-view">
-            <InConstruction />
-          </main>
-        </div>
-      </div>
-    </div>
+    <OpacityScaleMain>
+      <Container>
+        <Sidebar />
+        <Content>
+          <Header />
+          <MainContent>
+            <MainView>{welcome ? <Welcome /> : <InConstruction />}</MainView>
+          </MainContent>
+        </Content>
+      </Container>
+    </OpacityScaleMain>
   );
 };
 

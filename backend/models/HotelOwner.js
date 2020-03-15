@@ -36,6 +36,14 @@ const HotelOwnerSchema = new Schema({
   joinDate: {
     type: Date,
     default: Date.now
+  },
+  verified: {
+    type: Boolean,
+    default: false
+  },
+  hasAccess: {
+    type: Boolean,
+    default: true
   }
 
   // Ajouter collaborations, campaigns, interested influencers

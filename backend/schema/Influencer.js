@@ -4,6 +4,7 @@ const InfluencerSchema = gql`
   # Model Objects
 
   type Influencer {
+    id: ID!
     firstName: String!
     lastName: String!
     username: String!

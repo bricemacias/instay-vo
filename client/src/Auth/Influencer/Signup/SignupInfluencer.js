@@ -1,25 +1,118 @@
 import React, { useState } from 'react';
-// import { withRouter } from 'react-router-dom';
+
 import TextField from '@material-ui/core/TextField';
 import Checkbox from '@material-ui/core/Checkbox';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 import Button from '@material-ui/core/Button';
 import { ThemeProvider, createMuiTheme } from '@material-ui/core/styles';
+import { MaterialTheme } from 'styles/MaterialThemes';
 
-import Error from '../../../components/Error';
+import styled from 'styled-components';
+import { Container, Title, Subtitle } from 'styles/auth';
+
+import { OpacityScaleMedium } from 'animations';
+
+import Error from 'Components/Error';
 
 import { Mutation } from 'react-apollo';
 
-import { SIGNUP_INFLUENCER } from '../../../graphql/influencer';
+import { SIGNUP_INFLUENCER } from 'graphql/influencer';
 
-const theme = createMuiTheme({
-  palette: {
-    primary: { main: '#7f9eb2' }
-  },
-  typography: {
-    fontSize: 20
+// Styles
+const Form = styled.form`
+  display: grid;
+  font-size: 1.7rem;
+  grid-template-rows: repeat(7, 50px);
+  grid-template-columns: repeat(2, 1fr);
+  grid-gap: 10px;
+  margin: 0 1rem;
+
+  @media only screen and (max-width: ${p => p.theme.screen.smallest}) {
+    grid-template-rows: repeat(9, 50px);
   }
-});
+`;
+
+const FirstName = styled.div`
+  grid-row: 1/2;
+  grid-column: 1/2;
+
+  @media only screen and (max-width: ${p => p.theme.screen.smallest}) {
+    grid-column: 1/-1;
+  }
+`;
+
+const LastName = styled.div`
+  grid-row: 1/2;
+  grid-column: 2/3;
+
+  @media only screen and (max-width: ${p => p.theme.screen.smallest}) {
+    grid-row: 2/3;
+    grid-column: 1/-1;
+  }
+`;
+
+const Username = styled.div`
+  grid-row: 2/3;
+  grid-column: 1/3;
+
+  @media only screen and (max-width: ${p => p.theme.screen.smallest}) {
+    grid-row: 3/4;
+  }
+`;
+
+const Email = styled.div`
+  grid-row: 3/4;
+  grid-column: 1/3;
+
+  @media only screen and (max-width: ${p => p.theme.screen.smallest}) {
+    grid-row: 4/5;
+  }
+`;
+
+const Password = styled.div`
+  grid-row: 4/5;
+  grid-column: 1/3;
+
+  @media only screen and (max-width: ${p => p.theme.screen.smallest}) {
+    grid-row: 5/6;
+  }
+`;
+
+const Confirm = styled.div`
+  grid-row: 5/6;
+  grid-column: 1/3;
+
+  @media only screen and (max-width: ${p => p.theme.screen.smallest}) {
+    grid-row: 6/7;
+  }
+`;
+
+const Agree = styled.div`
+  grid-row: 6/7;
+  grid-column: 1/3;
+
+  @media only screen and (max-width: ${p => p.theme.screen.smallest}) {
+    grid-row: 7/8;
+  }
+`;
+
+const SignupButton = styled.div`
+  grid-row: 7/8;
+  grid-column: 1/3;
+  justify-self: center;
+
+  @media only screen and (max-width: ${p => p.theme.screen.smallest}) {
+    grid-row: 8/9;
+  }
+`;
+
+const SignupError = styled.div`
+  grid-column: 1/3;
+  justify-self: center;
+  margin-bottom: 3rem;
+`;
+
+// Component
 
 const SignupInfluencer = props => {
   const [firstName, setFirstName] = useState('');
@@ -54,7 +147,7 @@ const SignupInfluencer = props => {
     }).then(async ({ data }) => {
       console.log(data);
       localStorage.setItem('token', data.signupInfluencer.token);
-      await props.refetch();
+      // await props.refetch();
       clearState();
       // props.history.push('/');
       await props.handleNext(prevActiveStep => prevActiveStep + 1);
@@ -75,107 +168,105 @@ const SignupInfluencer = props => {
   };
 
   return (
-    <ThemeProvider theme={theme}>
-      <div className="signup-container">
-        <h2 className="signup-title">INSTAY</h2>
-        <h3 className="signup-subtitle">
-          Please complete to create your account
-        </h3>
-        <Mutation mutation={SIGNUP_INFLUENCER}>
-          {(signupInfluencer, { data, loading, error }) => {
-            return (
-              <form className="signup-grid">
-                <div className="first-name">
-                  <TextField
-                    id="first-name"
-                    label="First Name"
-                    fullWidth
-                    color="primary"
-                    value={firstName}
-                    onChange={e => setFirstName(e.target.value)}
-                  />
-                </div>
-                <div className="last-name">
-                  <TextField
-                    id="last-name"
-                    label="Last Name"
-                    fullWidth
-                    color="primary"
-                    value={lastName}
-                    onChange={e => setLastName(e.target.value)}
-                  />
-                </div>
-                <div className="username">
-                  <TextField
-                    id="username"
-                    label="Username"
-                    fullWidth
-                    color="primary"
-                    value={username}
-                    onChange={e => setUsername(e.target.value)}
-                  />
-                </div>
-                <div className="email">
-                  <TextField
-                    id="email"
-                    label="Email"
-                    fullWidth
-                    color="primary"
-                    value={email}
-                    onChange={e => setEmail(e.target.value)}
-                  />
-                </div>
-                <div className="password">
-                  <TextField
-                    id="password"
-                    label="Password"
-                    fullWidth
-                    color="primary"
-                    value={password}
-                    onChange={e => setPassword(e.target.value)}
-                  />
-                </div>
-                <div className="confirm">
-                  <TextField
-                    id="confirm-password"
-                    label="Confirm Password"
-                    fullWidth
-                    color="primary"
-                    value={confirm}
-                    onChange={e => setConfirm(e.target.value)}
-                  />
-                </div>
-                <div className="agree">
-                  <FormControlLabel
-                    control={
-                      <Checkbox
-                        checked={agree}
-                        onChange={e => setAgree(e.target.checked)}
-                        value="terms"
-                      />
-                    }
-                    label="I agree with terms and conditions"
-                  />
-                </div>
-                <div className="apply">
-                  <Button
-                    type="submit"
-                    variant="contained"
-                    color="secondary"
-                    onClick={e => handleSubmit(e, signupInfluencer)}
-                    disabled={loading || validateForm()}
-                  >
-                    SIGN UP
-                  </Button>
-                </div>
-                <div className="signup-error">
-                  {error && <Error error={error} />}
-                </div>
-              </form>
-            );
-          }}
-        </Mutation>
-      </div>
+    <ThemeProvider theme={MaterialTheme}>
+      <OpacityScaleMedium>
+        <Container>
+          <Title>INSTAY</Title>
+          <Subtitle>Please complete to create your account</Subtitle>
+          <Mutation mutation={SIGNUP_INFLUENCER}>
+            {(signupInfluencer, { data, loading, error }) => {
+              return (
+                <Form>
+                  <FirstName>
+                    <TextField
+                      id="first-name"
+                      label="First Name"
+                      fullWidth
+                      color="primary"
+                      value={firstName}
+                      onChange={e => setFirstName(e.target.value)}
+                    />
+                  </FirstName>
+                  <LastName>
+                    <TextField
+                      id="last-name"
+                      label="Last Name"
+                      fullWidth
+                      color="primary"
+                      value={lastName}
+                      onChange={e => setLastName(e.target.value)}
+                    />
+                  </LastName>
+                  <Username>
+                    <TextField
+                      id="username"
+                      label="Username"
+                      fullWidth
+                      color="primary"
+                      value={username}
+                      onChange={e => setUsername(e.target.value)}
+                    />
+                  </Username>
+                  <Email>
+                    <TextField
+                      id="email"
+                      label="Email"
+                      fullWidth
+                      color="primary"
+                      value={email}
+                      onChange={e => setEmail(e.target.value)}
+                    />
+                  </Email>
+                  <Password>
+                    <TextField
+                      id="password"
+                      label="Password"
+                      fullWidth
+                      color="primary"
+                      value={password}
+                      onChange={e => setPassword(e.target.value)}
+                    />
+                  </Password>
+                  <Confirm>
+                    <TextField
+                      id="confirm-password"
+                      label="Confirm Password"
+                      fullWidth
+                      color="primary"
+                      value={confirm}
+                      onChange={e => setConfirm(e.target.value)}
+                    />
+                  </Confirm>
+                  <Agree>
+                    <FormControlLabel
+                      control={
+                        <Checkbox
+                          checked={agree}
+                          onChange={e => setAgree(e.target.checked)}
+                          value="terms"
+                        />
+                      }
+                      label="I agree with terms and conditions"
+                    />
+                  </Agree>
+                  <SignupButton>
+                    <Button
+                      type="submit"
+                      variant="contained"
+                      color="secondary"
+                      onClick={e => handleSubmit(e, signupInfluencer)}
+                      disabled={loading || validateForm()}
+                    >
+                      SIGN UP
+                    </Button>
+                  </SignupButton>
+                  <SignupError>{error && <Error error={error} />}</SignupError>
+                </Form>
+              );
+            }}
+          </Mutation>
+        </Container>
+      </OpacityScaleMedium>
     </ThemeProvider>
   );
 };

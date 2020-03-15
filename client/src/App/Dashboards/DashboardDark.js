@@ -1,12 +1,11 @@
 import React from 'react';
-import user from '../img/user-6.jpg';
-import icons from '../img/sprite.svg';
-import '../../App.css';
-import '../../styles/css/style.css';
+import user from 'images/user-6.jpg';
+import icons from 'images/sprite.svg';
+import 'styles/css/style.css';
 
-import Sidebar from '../Layout/Sidebar';
+import SidebarOther from 'Layout/SidebarOther';
 
-import InConstruction from '../Pages/InConstruction';
+import InConstruction from 'Pages/InConstruction';
 
 const DashboardDark = () => {
   return (
@@ -42,7 +41,11 @@ const DashboardDark = () => {
             <span className="user-nav__notification">13</span>
           </div>
           <div className="user-nav__user">
-            <img src={user} alt="User photo" className="user-nav__user-photo" />
+            <images
+              src={user}
+              alt="User photo"
+              className="user-nav__user-photo"
+            />
             <span className="user-nav__user-name user-nav__user-name--dark-mode">
               Sarah
             </span>
@@ -52,7 +55,7 @@ const DashboardDark = () => {
       <div className="content"></div>
 
       <div className="content">
-        <Sidebar />
+        <SidebarOther />
 
         <main className="hotel-view">
           <InConstruction />

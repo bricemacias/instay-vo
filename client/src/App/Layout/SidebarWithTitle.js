@@ -1,84 +1,93 @@
 import React from 'react';
-import icons from '../../img/sprite.svg';
-import { findByLabelText } from '@testing-library/react';
+import icons from 'images/sprite.svg';
+
+import {
+  Sidebar,
+  LogoTitle,
+  SideNav,
+  SideNavItem,
+  SideNavLink,
+  SideNavIcon,
+  SideNavText
+} from 'styles/layout';
 
 const SidebarWithTitle = () => {
   return (
     <>
-      <nav className="sidebar">
+      <Sidebar>
         <div style={{ display: 'flex', flexDirection: 'column' }}>
-          <h1 className="logo-title logo-title--side">INSTAY</h1>
-          <ul className="side-nav">
-            <li className="side-nav__item side-nav__item--active">
-              <a href="#" className="side-nav__link">
-                <svg className="side-nav__icon">
+          <LogoTitle>INSTAY</LogoTitle>
+          <SideNav>
+            <SideNavItem>
+              <SideNavLink exact to="/">
+                <SideNavIcon>
                   <use xlinkHref={`${icons}#icon-list`} />
-                </svg>
-                <span className="side-nav__text">Your campaign</span>
-              </a>
-            </li>
-            <li className="side-nav__item">
-              <a href="#" className="side-nav__link">
-                <svg className="side-nav__icon">
+                </SideNavIcon>
+                <SideNavText>Your campaign</SideNavText>
+              </SideNavLink>
+            </SideNavItem>
+            <SideNavItem>
+              <SideNavLink exact to="/Requests">
+                <SideNavIcon>
                   <use xlinkHref={`${icons}#icon-user1`} />
-                </svg>
-                <span className="side-nav__text">Requests</span>
-              </a>
-            </li>
-            <li className="side-nav__item">
-              <a href="#" className="side-nav__link">
-                <svg className="side-nav__icon">
+                </SideNavIcon>
+                <SideNavText>Requests</SideNavText>
+              </SideNavLink>
+            </SideNavItem>
+            <SideNavItem>
+              <SideNavLink exact to="/Collaborations">
+                <SideNavIcon>
                   <use xlinkHref={`${icons}#icon-shield`} />
-                </svg>
-                <span className="side-nav__text">Collaborations</span>
-              </a>
-            </li>
-            <li className="side-nav__item">
-              <a href="#" className="side-nav__link">
-                <svg className="side-nav__icon">
+                </SideNavIcon>
+                <SideNavText>Collaborations</SideNavText>
+              </SideNavLink>
+            </SideNavItem>
+            <SideNavItem>
+              <SideNavLink exact to="/Calendar">
+                <SideNavIcon>
                   <use xlinkHref={`${icons}#icon-calendar`} />
-                </svg>
-                <span className="side-nav__text">Calendar</span>
-              </a>
-            </li>
-            <li className="side-nav__item">
-              <a href="#" className="side-nav__link">
-                <svg className="side-nav__icon">
+                </SideNavIcon>
+                <SideNavText>Calendar</SideNavText>
+              </SideNavLink>
+            </SideNavItem>
+            <SideNavItem>
+              <SideNavLink exact to="/Chat">
+                <SideNavIcon>
                   <use xlinkHref={`${icons}#icon-chat`} />
-                </svg>
-                <span className="side-nav__text">Chat</span>
-              </a>
-            </li>
-            <li className="side-nav__item">
-              <a href="#" className="side-nav__link">
-                <svg className="side-nav__icon">
+                </SideNavIcon>
+                <SideNavText>Chat</SideNavText>
+              </SideNavLink>
+            </SideNavItem>
+            <SideNavItem>
+              <SideNavLink exact to="/Analytics">
+                <SideNavIcon>
                   <use xlinkHref={`${icons}#icon-bar-graph`} />
-                </svg>
-                <span className="side-nav__text">Analytics</span>
-              </a>
-            </li>
-          </ul>
+                </SideNavIcon>
+                <SideNavText>Analytics</SideNavText>
+              </SideNavLink>
+            </SideNavItem>
+          </SideNav>
         </div>
 
-        <ul className="side-nav">
-          <li className="side-nav__item">
-            <a href="#" className="side-nav__link">
-              <svg className="side-nav__icon">
+        <SideNav>
+          <SideNavItem>
+            <SideNavLink exact to="/FAQ">
+              <SideNavIcon>
                 <use xlinkHref={`${icons}#icon-question`} />
-              </svg>
-              <span className="side-nav__text">FAQ</span>
-            </a>
-          </li>
-          <li className="side-nav__item">
-            <a href="#" className="side-nav__link">
-              <svg className="side-nav__icon">
+              </SideNavIcon>
+              <SideNavText>Help Center</SideNavText>
+            </SideNavLink>
+          </SideNavItem>
+          <SideNavItem>
+            <SideNavLink exact to="/Settings">
+              <SideNavIcon>
                 <use xlinkHref={`${icons}#icon-cog`} />
-              </svg>
-              <span className="side-nav__text">Settings</span>
-            </a>
-          </li>
-        </ul>
-      </nav>
+              </SideNavIcon>
+              <SideNavText>Settings</SideNavText>
+            </SideNavLink>
+          </SideNavItem>
+        </SideNav>
+      </Sidebar>
     </>
   );
 };

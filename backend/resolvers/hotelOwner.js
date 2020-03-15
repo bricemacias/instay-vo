@@ -1,6 +1,7 @@
 import { createHotelOwnerToken } from '../utils/generate-token';
 import bcrypt from 'bcrypt';
 
+// Queries
 const Query = {
   getAllHotelOwners: async (root, args, { HotelOwner }) => {
     const allHotelOwners = await HotelOwner.find();
@@ -14,7 +15,7 @@ const Query = {
     }
 
     const hotelOwner = await HotelOwner.findOne({
-      username: currentUser.username
+      _id: currentUser.id
     });
     // .populate({
     //   path: 'favorite',
@@ -22,9 +23,18 @@ const Query = {
     // });
 
     return hotelOwner;
+  },
+
+  getHotelOwnerByUsername: async (root, { username }, { HotelOwner }) => {
+    const hotelOwner = await HotelOwner.findOne({
+      username: username
+    });
+
+    return hotelOwner;
   }
 };
 
+// Mutations
 const Mutation = {
   signinHotelOwner: async (root, { username, password }, { HotelOwner }) => {
     const hotelOwner = await HotelOwner.findOne({ username });
