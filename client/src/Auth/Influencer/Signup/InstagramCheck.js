@@ -13,9 +13,9 @@ import { ThemeProvider } from '@material-ui/core/styles';
 import { MaterialTheme } from '../../../styles/MaterialThemes';
 
 import styled from 'styled-components';
-import { Container, Title, Subtitle } from '../../../styles/auth';
+import { Container, Title, Subtitle } from '../../../styles/auth/index';
 
-import { OpacityScaleMedium } from '../../../animations';
+import { OpacityScaleMedium } from '../../../animations/index';
 
 // Styles
 const InstagramInput = styled.div`

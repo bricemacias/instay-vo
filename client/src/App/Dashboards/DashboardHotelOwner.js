@@ -8,7 +8,7 @@ import { SidebarHotelOwner as Sidebar } from '../Layout/Sidebar/SidebarHotelOwne
 import InConstruction from '../Pages/InConstruction';
 import Welcome from '../Pages/Welcome';
 
-import { OpacityScaleMain } from '../../animations';
+import { OpacityScaleMain } from '../../animations/index';
 
 const DashboardInfluencer = () => {
   const [welcome, setWelcome] = useState(true);

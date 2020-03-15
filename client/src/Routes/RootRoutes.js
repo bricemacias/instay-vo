@@ -23,7 +23,7 @@ import InfluencerSignupStepper from '../Auth/Influencer/Signup/InfluencerSignupS
 import SignupHotelOwner from '../Auth/HotelOwner/Signup/SignupHotelOwner';
 import HotelOwnerSignupStepper from '../Auth/HotelOwner/Signup/HotelOwnerSignupStepper';
 
-import AuthLayout from '../Auth';
+import AuthLayout from '../Auth/AuthLayout';
 
 const RootRoutes = ({ session, refetch }) => {
   // const { session } = useQuery(GET_CURRENT_INFLUENCER);
