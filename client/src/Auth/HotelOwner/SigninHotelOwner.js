@@ -11,11 +11,11 @@ import { Container, Title, Subtitle } from '../../styles/auth';
 
 import { OpacityScaleMedium } from '../../animations';
 
-import Error from '../../Components/Error';
+import Error from '../../components/Error';
 
 import { Mutation } from 'react-apollo';
 
-import { SIGNIN_HOTEL_OWNER } from 'graphql/hotelOwner';
+import { SIGNIN_HOTEL_OWNER } from '../../graphql/hotelOwner';
 
 // Styles
 const Form = styled.form`

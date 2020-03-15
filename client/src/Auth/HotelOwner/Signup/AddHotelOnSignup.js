@@ -11,13 +11,13 @@ import { Container, Title, Subtitle } from '../../../styles/auth';
 
 import { OpacityScaleMedium } from '../../../animations';
 
-import Error from '../../../Components/Error';
+import Error from '../../../components/Error';
 
 import { Query, Mutation } from 'react-apollo';
 
 import { ADD_HOTEL } from '../../../graphql/hotel';
 
-import withHotelOwner from '../../../Components/utils/withHotelOwner';
+import withHotelOwner from '../../../components/utils/withHotelOwner';
 
 // Styles
 const Form = styled.form`

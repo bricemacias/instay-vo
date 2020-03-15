@@ -13,7 +13,7 @@ import {
   UserNavUserName
 } from '../../../styles/layout';
 
-import Search from '../../../Components/Search';
+import Search from '../../../components/Search';
 
 const Header = props => {
   return (

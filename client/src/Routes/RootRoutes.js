@@ -11,7 +11,7 @@ import { GET_CURRENT_INFLUENCER } from '../graphql/influencer';
 
 import { GlobalStyle } from '../styles/GlobalStyles';
 
-import ScrollToTop from '../Components/ScrollToTop';
+import ScrollToTop from '../components/ScrollToTop';
 
 import App from '../App';
 import SignupInfluencer from '../Auth/Influencer/Signup/SignupInfluencer';
