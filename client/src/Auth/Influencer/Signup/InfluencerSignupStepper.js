@@ -10,7 +10,7 @@ import StepConnector from '@material-ui/core/StepConnector';
 import Typography from '@material-ui/core/Typography';
 import { makeStyles, withStyles } from '@material-ui/core/styles';
 
-import { OpacityDelayStepper } from '../../../animations/index';
+import { OpacityDelayStepper } from '../../../animations/animations';
 
 import SignupInfluencer from './SignupInfluencer';
 import InstagramCheck from './InstagramCheck';

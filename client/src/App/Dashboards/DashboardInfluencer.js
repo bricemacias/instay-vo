@@ -8,7 +8,7 @@ import { SidebarInfluencer as Sidebar } from '../Layout/Sidebar/SidebarInfluence
 import InConstruction from '../Pages/InConstruction';
 import Welcome from '../Pages/Welcome';
 
-import { OpacityScaleMain } from '../../animations/index';
+import { OpacityScaleMain } from '../../animations/animations';
 
 const DashboardInfluencer = () => {
   const [welcome, setWelcome] = useState(true);

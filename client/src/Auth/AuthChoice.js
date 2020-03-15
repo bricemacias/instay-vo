@@ -6,9 +6,9 @@ import { ThemeProvider, createMuiTheme } from '@material-ui/core/styles';
 import { MaterialTheme } from '../styles/MaterialThemes';
 
 import styled from 'styled-components';
-import { Container, Title, Subtitle } from '../styles/auth/index';
+import { Container, Title, Subtitle } from '../styles/auth/auth';
 
-import { OpacityScaleFull } from '../animations/index';
+import { OpacityScaleFull } from '../animations/animations';
 
 const Grid = styled.div`
   display: grid;
