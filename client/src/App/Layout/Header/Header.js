@@ -3,6 +3,10 @@ import React from 'react';
 import user from '../../../images/user-6.jpg';
 import icons from '../../../images/sprite.svg';
 
+import { withRouter } from 'react-router-dom';
+
+import { withApollo } from 'react-apollo';
+
 import {
   Header as HeaderLayout,
   UserNav,
@@ -15,7 +19,14 @@ import {
 
 import Search from '../../../components/Search';
 
-const Header = props => {
+const Header = ({ client, history }) => {
+  // SIGNOUT FUNCTION TO PUT IN DROPDOWN, NOT HERE !
+  const handleSignOut = async () => {
+    localStorage.removeItem('token');
+    client.resetStore();
+    history.push('/');
+  };
+
   return (
     <>
       <HeaderLayout>
@@ -33,7 +44,7 @@ const Header = props => {
             </UserNavIcon>
             <UserNavNotification>13</UserNavNotification>
           </UserNavIconBox>
-          <div>
+          <div onClick={handleSignOut}>
             <UserNavUserPhoto src={user} alt="User photo" />
             <UserNavUserName>Sarah</UserNavUserName>
           </div>
@@ -43,4 +54,4 @@ const Header = props => {
   );
 };
 
-export default Header;
+export default withRouter(withApollo(Header));

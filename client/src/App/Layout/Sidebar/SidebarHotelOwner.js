@@ -43,19 +43,19 @@ export const SidebarHotelOwner = () => {
               </SideNavLink>
             </SideNavItem>
             <SideNavItem>
+              <SideNavItem>
+                <SideNavLink exact to="/Chat">
+                  <SideNavIcon>
+                    <use xlinkHref={`${icons}#icon-chat`} />
+                  </SideNavIcon>
+                  <SideNavText>Chat</SideNavText>
+                </SideNavLink>
+              </SideNavItem>
               <SideNavLink exact to="/Calendar">
                 <SideNavIcon>
                   <use xlinkHref={`${icons}#icon-calendar`} />
                 </SideNavIcon>
                 <SideNavText>Calendar</SideNavText>
-              </SideNavLink>
-            </SideNavItem>
-            <SideNavItem>
-              <SideNavLink exact to="/Chat">
-                <SideNavIcon>
-                  <use xlinkHref={`${icons}#icon-chat`} />
-                </SideNavIcon>
-                <SideNavText>Chat</SideNavText>
               </SideNavLink>
             </SideNavItem>
             <SideNavItem>

@@ -8,6 +8,8 @@ import { SidebarInfluencer as Sidebar } from '../Layout/Sidebar/SidebarInfluence
 import InConstruction from '../Pages/InConstruction';
 import Welcome from '../Pages/Welcome';
 
+import InfluencerRoutes from '../../Routes/InfluencerRoutes';
+
 import { OpacityScaleMain } from '../../animations/animations';
 
 const DashboardInfluencer = () => {
@@ -25,7 +27,7 @@ const DashboardInfluencer = () => {
         <Content>
           <Header />
           <MainContent>
-            <MainView>{welcome ? <Welcome /> : <InConstruction />}</MainView>
+            <MainView>{welcome ? <Welcome /> : <InfluencerRoutes />}</MainView>
           </MainContent>
         </Content>
       </Container>

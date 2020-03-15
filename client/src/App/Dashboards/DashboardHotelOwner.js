@@ -10,6 +10,8 @@ import Welcome from '../Pages/Welcome';
 
 import { OpacityScaleMain } from '../../animations/animations';
 
+import HotelOwnerRoutes from '../../Routes/HotelOwnerRoutes';
+
 const DashboardInfluencer = () => {
   const [welcome, setWelcome] = useState(true);
 
@@ -25,7 +27,7 @@ const DashboardInfluencer = () => {
         <Content>
           <Header />
           <MainContent>
-            <MainView>{welcome ? <Welcome /> : <InConstruction />}</MainView>
+            <MainView>{welcome ? <Welcome /> : <HotelOwnerRoutes />}</MainView>
           </MainContent>
         </Content>
       </Container>
