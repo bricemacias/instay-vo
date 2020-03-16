@@ -11,10 +11,10 @@ import {
   SideNavText
 } from '../../../styles/layout';
 
-export const SidebarInfluencer = () => {
+export const SidebarInfluencer = ({ open }) => {
   return (
     <>
-      <Sidebar>
+      <Sidebar open={open}>
         <div style={{ display: 'flex', flexDirection: 'column' }}>
           <LogoTitle>INSTAY</LogoTitle>
           <SideNav>

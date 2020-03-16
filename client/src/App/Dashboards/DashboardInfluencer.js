@@ -5,7 +5,6 @@ import { Container, Content, MainContent, MainView } from '../../styles/layout';
 import Header from '../Layout/Header/Header';
 import { SidebarInfluencer as Sidebar } from '../Layout/Sidebar/SidebarInfluencer';
 
-import InConstruction from '../Pages/InConstruction';
 import Welcome from '../Pages/Welcome';
 
 import InfluencerRoutes from '../../Routes/InfluencerRoutes';
@@ -14,6 +13,11 @@ import { OpacityScaleMain } from '../../animations/animations';
 
 const DashboardInfluencer = () => {
   const [welcome, setWelcome] = useState(true);
+  const [open, setOpenState] = useState(true);
+
+  const setOpen = () => {
+    setOpenState(!open);
+  };
 
   useEffect(() => {
     setTimeout(function() {
@@ -23,9 +27,9 @@ const DashboardInfluencer = () => {
   return (
     <OpacityScaleMain>
       <Container>
-        <Sidebar />
+        <Sidebar open={open} />
         <Content>
-          <Header />
+          <Header setOpen={setOpen} />
           <MainContent>
             <MainView>{welcome ? <Welcome /> : <InfluencerRoutes />}</MainView>
           </MainContent>

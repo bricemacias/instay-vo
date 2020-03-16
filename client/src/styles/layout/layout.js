@@ -69,10 +69,12 @@ export const Sidebar = styled.nav`
   flex: 0 0 18%;
 
   height: 100%;
-
+  z-index: 1000;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+
+  transition: margin-left 0.2s ease-in-out;
 
   @media only screen and (max-width: ${p => p.theme.screen.medium716}) {
     flex: 0 0 10%;
@@ -86,10 +88,23 @@ export const Sidebar = styled.nav`
     margin: 0;
   }
 
-  @media only screen and (max-width: ${p => p.theme.screen.smallest}) {
-    flex: 0 0 15%;
-    width: 20%;
-    margin: 0;
+  @media (min-width: ${p => p.theme.screen.smallest}) {
+    padding-top: 0;
+    position: sticky;
+    top: 0;
+    margin-left: ${p => (p.open ? 0 : `-180px`)};
+    flex-basis: 180px;
+    flex-grow: 0;
+    flex-shrink: 0;
+    border: 0;
+  }
+
+  @media (max-width: ${p => p.theme.screen.smallest}) {
+    margin-left: ${p => (p.open ? 0 : `-240px`)};
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 240px;
   }
 `;
 

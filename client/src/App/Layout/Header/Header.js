@@ -18,8 +18,9 @@ import {
 } from '../../../styles/layout';
 
 import Search from '../../../components/Search';
+import Burger from '../../../components/Burger';
 
-const Header = ({ client, history }) => {
+const Header = ({ client, history, setOpen }) => {
   // SIGNOUT FUNCTION TO PUT IN DROPDOWN, NOT HERE !
   const handleSignOut = async () => {
     localStorage.removeItem('token');
@@ -30,6 +31,7 @@ const Header = ({ client, history }) => {
   return (
     <>
       <HeaderLayout>
+        <Burger setOpen={setOpen} />
         <Search />
         <UserNav>
           <UserNavIconBox>
