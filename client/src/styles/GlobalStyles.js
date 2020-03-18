@@ -37,6 +37,8 @@ body {
   margin: 0;
   font-weight: 400;
   line-height: 1.6;
+  height:100vh;
+  min-height:100vh;
   color: ${theme.colors.grey.dark2};
   background-image: linear-gradient(
     to right bottom,
@@ -48,9 +50,13 @@ body {
   /* height: 100vh; */
   background-repeat: no-repeat;
 
-   /* @media only screen and (min-width: $bp-largest) {
-     height: 100vh;
-   } */
+   @media only screen and (max-width: ${theme.screen.smallest}) {
+    background-image: linear-gradient(
+    to right bottom,
+    white,
+    white
+  );
+   }
 }
 
 

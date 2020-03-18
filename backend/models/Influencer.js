@@ -21,7 +21,8 @@ const InfluencerSchema = new Schema({
   },
   instagram: {
     type: String,
-    require: true
+    required: true,
+    unique: true
   },
   username: {
     type: String,

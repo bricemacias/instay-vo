@@ -1,12 +1,22 @@
 import React from 'react';
 import { StyledBurger } from '../styles/components/burger';
 
-const Burger = ({ setOpen }) => {
+// const Burger = ({ open, setOpen }) => {
+//   return (
+//     <StyledBurger open={open} onClick={setOpen}>
+//       <div />
+//       <div />
+//       <div />
+//     </StyledBurger>
+//   );
+// };
+
+// export default Burger;
+
+const Burger = ({ open, setOpen }) => {
   return (
-    <StyledBurger onClick={setOpen}>
-      <div />
-      <div />
-      <div />
+    <StyledBurger open={open} onClick={setOpen}>
+      <span>&nbsp;</span>
     </StyledBurger>
   );
 };

@@ -158,7 +158,7 @@ const HotelOwnerSignupStepper = ({ refetch }) => {
           })}
         </Stepper>
       </OpacityDelayStepper>
-      <div>
+      <div style={{ height: '100%', minHeight: '100%', width: '100%' }}>
         {activeStep === steps.length ? (
           <div>
             <Typography>All steps completed - you&apos;re finished</Typography>
@@ -166,7 +166,6 @@ const HotelOwnerSignupStepper = ({ refetch }) => {
         ) : (
           getStepContent(activeStep)
         )}
-        ;
       </div>
     </div>
   );

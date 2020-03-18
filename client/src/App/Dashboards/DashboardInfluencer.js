@@ -29,7 +29,7 @@ const DashboardInfluencer = () => {
       <Container>
         <Sidebar open={open} />
         <Content>
-          <Header setOpen={setOpen} />
+          <Header open={open} setOpen={setOpen} />
           <MainContent>
             <MainView>{welcome ? <Welcome /> : <InfluencerRoutes />}</MainView>
           </MainContent>
