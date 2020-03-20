@@ -1,4 +1,5 @@
 import React from 'react';
+import styled from 'styled-components';
 import icons from '../../../images/sprite.svg';
 
 import {
@@ -11,10 +12,14 @@ import {
   SideNavText
 } from '../../../styles/layout';
 
-export const SidebarInfluencer = ({ open }) => {
+const BottomIcons = styled.div`
+  ${p => p.width <= parseInt('1200px', 10) && { marginBottom: '5rem' }}
+`;
+
+export const SidebarInfluencer = ({ open, sideBarRef, width }) => {
   return (
     <>
-      <Sidebar open={open}>
+      <Sidebar open={open} ref={sideBarRef}>
         <div style={{ display: 'flex', flexDirection: 'column' }}>
           <LogoTitle>INSTAY</LogoTitle>
           <SideNav>
@@ -61,24 +66,26 @@ export const SidebarInfluencer = ({ open }) => {
           </SideNav>
         </div>
 
-        <SideNav>
-          <SideNavItem>
-            <SideNavLink exact to="/HelpCenter">
-              <SideNavIcon>
-                <use xlinkHref={`${icons}#icon-question`} />
-              </SideNavIcon>
-              <SideNavText>Help Center</SideNavText>
-            </SideNavLink>
-          </SideNavItem>
-          <SideNavItem>
-            <SideNavLink exact to="/Settings">
-              <SideNavIcon>
-                <use xlinkHref={`${icons}#icon-cog`} />
-              </SideNavIcon>
-              <SideNavText>Settings</SideNavText>
-            </SideNavLink>
-          </SideNavItem>
-        </SideNav>
+        <BottomIcons width={width}>
+          <SideNav>
+            <SideNavItem>
+              <SideNavLink exact to="/HelpCenter">
+                <SideNavIcon>
+                  <use xlinkHref={`${icons}#icon-question`} />
+                </SideNavIcon>
+                <SideNavText>Help Center</SideNavText>
+              </SideNavLink>
+            </SideNavItem>
+            <SideNavItem>
+              <SideNavLink exact to="/Settings">
+                <SideNavIcon>
+                  <use xlinkHref={`${icons}#icon-cog`} />
+                </SideNavIcon>
+                <SideNavText>Settings</SideNavText>
+              </SideNavLink>
+            </SideNavItem>
+          </SideNav>
+        </BottomIcons>
       </Sidebar>
     </>
   );

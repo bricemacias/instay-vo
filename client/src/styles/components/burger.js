@@ -49,6 +49,9 @@ export const StyledBurger = styled.button`
   justify-content: space-around; */
   /* width: 2rem;
   height: 2rem; */
+  @media (min-width: ${p => p.theme.screen.largest}) {
+    display: none;
+  }
   border: none;
   cursor: pointer;
   padding: 0;

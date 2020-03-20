@@ -99,12 +99,16 @@ export const Sidebar = styled.nav`
     border: 0;
   }
 
-  @media (max-width: ${p => p.theme.screen.smallest}) {
+  @media (min-width: ${p => p.theme.screen.largest}) {
+    margin-left: 0;
+  }
+
+  @media (max-width: ${p => p.theme.screen.medium716}) {
     margin-left: ${p => (p.open ? 0 : `-240px`)};
     position: fixed;
     top: 0;
     left: 0;
-    width: 240px;
+    width: 20rem;
   }
 `;
 
