@@ -13,10 +13,10 @@ export const LogoTitle = styled.h1`
   font-weight: 300;
   letter-spacing: 0.7rem;
 
-  @media only screen and (max-width: ${p => p.theme.screen.medium716}) {
+  /* @media only screen and (max-width: ${p => p.theme.screen.medium716}) {
     font-size: 1.2rem;
     margin: 2.8rem 0.5rem 2.8rem 1rem;
-  }
+  } */
 `;
 
 export const SideNav = styled.ul`
@@ -25,9 +25,9 @@ export const SideNav = styled.ul`
   margin-top: 3.5rem;
   margin-bottom: 2rem;
 
-  @media only screen and (max-width: ${p => p.theme.screen.medium716}) {
+  /* @media only screen and (max-width: ${p => p.theme.screen.medium716}) {
     margin-top: 0;
-  }
+  } */
 `;
 
 export const SideNavItem = styled.li`
@@ -89,24 +89,24 @@ export const SideNavIcon = styled.svg`
   margin-right: 2rem;
   fill: currentColor;
 
-  @media only screen and (max-width: ${p => p.theme.screen.medium716}) {
+  /* @media only screen and (max-width: ${p => p.theme.screen.medium716}) {
     margin-right: 0.1rem;
     margin-left: 0;
-  }
+  } */
 `;
 
 export const SideNavText = styled.span`
   z-index: 100;
   @media only screen and (max-width: ${p => p.theme.screen.largest}) {
-    font-size: 90%;
+    font-size: 100%;
   }
   @media only screen and (max-width: ${p => p.theme.screen.medium}) {
-    font-size: 85%;
+    font-size: 95%;
   }
   @media only screen and (max-width: ${p => p.theme.screen.medium800}) {
-    font-size: 80%;
+    font-size: 85%;
   }
-  @media only screen and (max-width: ${p => p.theme.screen.medium716}) {
+  /* @media only screen and (max-width: ${p => p.theme.screen.medium716}) {
     display: none;
-  }
+  } */
 `;

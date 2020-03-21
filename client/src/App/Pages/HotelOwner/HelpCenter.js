@@ -16,7 +16,13 @@ const HelpCenter = () => {
         <svg style={{ width: '14rem', height: '14rem', margin: '0 auto' }}>
           <use xlinkHref={`${icons}#icon-question`} />
         </svg>
-        <span style={{ margin: '2rem auto', fontSize: '2.5rem' }}>
+        <span
+          style={{
+            textAlign: 'center',
+            margin: '2rem auto',
+            fontSize: '2.5rem'
+          }}
+        >
           Help Center is in construction
         </span>
       </div>

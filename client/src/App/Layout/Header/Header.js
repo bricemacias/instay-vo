@@ -8,18 +8,21 @@ import { withRouter } from 'react-router-dom';
 import { withApollo } from 'react-apollo';
 
 import {
-  Header as HeaderLayout,
   UserNav,
   UserNavIconBox,
   UserNavIcon,
   UserNavNotification,
+  UserNavUser,
   UserNavUserPhoto,
   UserNavUserName
-} from '../../../styles/layout';
+} from '../../../styles/layout/header';
+
+import { Header as HeaderLayout } from '../../../styles/layout/layout';
 
 import Search from '../../../components/Search';
+import Burger from '../../../components/Burger';
 
-const Header = ({ client, history }) => {
+const Header = ({ client, history, setOpen, open }) => {
   // SIGNOUT FUNCTION TO PUT IN DROPDOWN, NOT HERE !
   const handleSignOut = async () => {
     localStorage.removeItem('token');
@@ -30,6 +33,7 @@ const Header = ({ client, history }) => {
   return (
     <>
       <HeaderLayout>
+        <Burger open={open} setOpen={setOpen} />
         <Search />
         <UserNav>
           <UserNavIconBox>
@@ -44,10 +48,10 @@ const Header = ({ client, history }) => {
             </UserNavIcon>
             <UserNavNotification>13</UserNavNotification>
           </UserNavIconBox>
-          <div onClick={handleSignOut}>
+          <UserNavUser onClick={handleSignOut}>
             <UserNavUserPhoto src={user} alt="User photo" />
             <UserNavUserName>Sarah</UserNavUserName>
-          </div>
+          </UserNavUser>
         </UserNav>
       </HeaderLayout>
     </>

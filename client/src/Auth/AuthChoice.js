@@ -37,7 +37,7 @@ const AuthChoice = props => {
   return (
     <ThemeProvider theme={MaterialTheme}>
       <OpacityScaleFull>
-        <Container>
+        <Container signin={true}>
           <Title>INSTAY</Title>
           <Subtitle>Choose your side</Subtitle>
           <Grid>

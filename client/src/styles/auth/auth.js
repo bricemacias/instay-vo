@@ -1,8 +1,18 @@
 import styled from 'styled-components';
 
+export const Test = styled.div`
+  display: flex;
+  flex-direction: column;
+  width: 500px;
+  @media only screen and (max-width: ${p => p.theme.screen.smallest}) {
+    height: 100vh;
+  }
+`;
+
 export const Container = styled.div`
   display: flex;
   background-color: white;
+
   flex-direction: column;
   align-items: center;
   justify-content: center;
@@ -16,9 +26,11 @@ export const Container = styled.div`
   border-image-slice: 1;
   box-shadow: 0 0.1rem 0.5rem rgba(0, 0, 0, 0.3);
   z-index: 100;
+
   @media only screen and (max-width: ${p => p.theme.screen.smallest}) {
-    height: 100vh;
-    margin: 0 auto;
+    box-shadow: none;
+    border: none;
+    ${p => !p.signin && { margin: '0 auto' }} /* margin: 0 auto; */
   }
 `;
 

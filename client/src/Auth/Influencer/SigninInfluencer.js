@@ -93,7 +93,7 @@ const SigninInfluencer = props => {
   return (
     <ThemeProvider theme={MaterialTheme}>
       <OpacityScaleMedium>
-        <Container>
+        <Container signin={true}>
           <Title>INSTAY</Title>
           <Subtitle>Welcome back! Please login to you account</Subtitle>
           <Mutation mutation={SIGNIN_INFLUENCER}>

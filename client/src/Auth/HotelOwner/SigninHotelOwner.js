@@ -18,6 +18,7 @@ import { Mutation } from 'react-apollo';
 import { SIGNIN_HOTEL_OWNER } from '../../graphql/hotelOwner';
 
 // Styles
+
 const Form = styled.form`
   display: grid;
   font-size: 1.7rem;
@@ -93,7 +94,7 @@ const SigninHotelOwner = props => {
   return (
     <ThemeProvider theme={MaterialTheme}>
       <OpacityScaleMedium>
-        <Container>
+        <Container signin={true}>
           <Title>INSTAY</Title>
           <Subtitle>Welcome back! Please login to you account</Subtitle>
           <Mutation mutation={SIGNIN_HOTEL_OWNER}>

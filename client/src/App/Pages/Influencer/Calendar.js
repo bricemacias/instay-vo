@@ -16,7 +16,13 @@ const Calendar = () => {
         <svg style={{ width: '14rem', height: '14rem', margin: '0 auto' }}>
           <use xlinkHref={`${icons}#icon-calendar`} />
         </svg>
-        <span style={{ margin: '2rem auto', fontSize: '2.5rem' }}>
+        <span
+          style={{
+            textAlign: 'center',
+            margin: '2rem auto',
+            fontSize: '2.5rem'
+          }}
+        >
           Calendar is in construction
         </span>
       </div>
