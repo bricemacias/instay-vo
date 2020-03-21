@@ -4,11 +4,13 @@ import ScrollToTop from '../components/ScrollToTop';
 
 import AppRoutes from '../Routes/AppRoutes';
 
+import Dashboard from './Dashboards/Dashboard';
+
 const AppLayout = props => {
   return (
     <>
       <ScrollToTop>
-        <AppRoutes {...props} />
+        <Dashboard {...props} />
       </ScrollToTop>
     </>
   );

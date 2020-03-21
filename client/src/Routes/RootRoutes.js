@@ -41,6 +41,7 @@ const RootRoutes = ({ session, refetch }) => {
                 <App
                   authUser={session.getCurrentInfluencer}
                   type="influencer"
+                  refetch={refetch}
                 />
               )}
             />
@@ -51,6 +52,7 @@ const RootRoutes = ({ session, refetch }) => {
                 <App
                   authUser={session.getCurrentHotelOwner}
                   type="hotelowner"
+                  refetch={refetch}
                 />
               )}
             />

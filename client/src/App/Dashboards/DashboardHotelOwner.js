@@ -11,6 +11,8 @@ import { OpacityScaleMain } from '../../animations/animations';
 
 import HotelOwnerRoutes from '../../Routes/HotelOwnerRoutes';
 
+//////// NOT USED ANYMORE
+
 const DashboardInfluencer = () => {
   const [welcome, setWelcome] = useState(true);
 

@@ -9,6 +9,10 @@ import HotelOwnerSignupStepper from '../Auth/HotelOwner/Signup/HotelOwnerSignupS
 import DashboardInfluencer from '../App/Dashboards/DashboardInfluencer';
 import DashboardHotelOwner from '../App/Dashboards/DashboardHotelOwner';
 
+import Dashboard from '../App/Dashboards/Dashboard';
+
+//////// NOT USED ANYMORE
+
 const AppRoutes = ({ authUser, type, refetch }) => {
   return (
     <>
@@ -17,14 +21,14 @@ const AppRoutes = ({ authUser, type, refetch }) => {
           <Route
             exact
             render={() => (
-              <DashboardInfluencer authUser={authUser} refetch={refetch} />
+              <Dashboard type={type} authUser={authUser} refetch={refetch} />
             )}
           />
         ) : type === 'hotelowner' ? (
           <Route
             exact
             render={() => (
-              <DashboardHotelOwner authUser={authUser} refetch={refetch} />
+              <Dashboard type={type} authUser={authUser} refetch={refetch} />
             )}
           />
         ) : null}

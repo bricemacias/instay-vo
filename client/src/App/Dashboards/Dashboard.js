@@ -3,20 +3,19 @@ import React, { useState, useEffect, useRef } from 'react';
 import { Container, Content, MainContent, MainView } from '../../styles/layout';
 
 import Header from '../Layout/Header/Header';
-import { SidebarInfluencer as Sidebar } from '../Layout/Sidebar/SidebarInfluencer';
+import { Sidebar } from '../Layout/Sidebar/Sidebar';
 
 import Welcome from '../Pages/Welcome';
 
 import InfluencerRoutes from '../../Routes/InfluencerRoutes';
+import HotelOwnerRoutes from '../../Routes/HotelOwnerRoutes';
 
 import { OpacityScaleMain } from '../../animations/animations';
 
 import { useWindowSize } from '../../hooks/useWindowSize';
 import { useClickOutside } from '../../hooks/useClickOutside';
 
-//////// NOT USED ANYMORE
-
-const DashboardInfluencer = () => {
+const Dashboard = ({ type }) => {
   const [welcome, setWelcome] = useState(true);
   const [open, setOpenState] = useState(false);
 
@@ -43,11 +42,24 @@ const DashboardInfluencer = () => {
   return (
     <OpacityScaleMain>
       <Container>
-        <Sidebar open={open} sideBarRef={sideBarRef} width={windowSize.width} />
+        <Sidebar
+          type={type}
+          open={open}
+          sideBarRef={sideBarRef}
+          width={windowSize.width}
+        />
         <Content>
           <Header open={open} setOpen={setOpen} />
           <MainContent>
-            <MainView>{welcome ? <Welcome /> : <InfluencerRoutes />}</MainView>
+            <MainView>
+              {welcome ? (
+                <Welcome />
+              ) : type === 'influencer' ? (
+                <InfluencerRoutes />
+              ) : (
+                <HotelOwnerRoutes />
+              )}
+            </MainView>
           </MainContent>
         </Content>
       </Container>
@@ -55,4 +67,4 @@ const DashboardInfluencer = () => {
   );
 };
 
-export default DashboardInfluencer;
+export default Dashboard;
