@@ -108,7 +108,7 @@ export const Sidebar = styled.nav`
     position: fixed;
     top: 0;
     left: 0;
-    width: 20rem;
+    width: 22rem;
   }
 `;
 

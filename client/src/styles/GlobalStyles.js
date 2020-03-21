@@ -23,7 +23,7 @@ html {
   /* @media only screen and (max-width: $bp-largest) {
     font-size: 70%;
   } */
-  @media only screen and (max-width: ${theme.screen.large}) {
+  @media only screen and (max-width: ${theme.screen.largest}) {
     font-size: 50%;
   }
 }

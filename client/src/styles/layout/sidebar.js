@@ -98,13 +98,13 @@ export const SideNavIcon = styled.svg`
 export const SideNavText = styled.span`
   z-index: 100;
   @media only screen and (max-width: ${p => p.theme.screen.largest}) {
-    font-size: 90%;
+    font-size: 100%;
   }
   @media only screen and (max-width: ${p => p.theme.screen.medium}) {
-    font-size: 85%;
+    font-size: 95%;
   }
   @media only screen and (max-width: ${p => p.theme.screen.medium800}) {
-    font-size: 80%;
+    font-size: 85%;
   }
   /* @media only screen and (max-width: ${p => p.theme.screen.medium716}) {
     display: none;
