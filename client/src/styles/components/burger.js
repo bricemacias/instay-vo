@@ -129,4 +129,8 @@ export const StyledBurger = styled.button`
       !open ? `${p => p.theme.colors.grey.dark3}` : 'white'};
     width: ${({ open }) => (open ? `1.8rem` : '2.7rem')};
   }
+
+  @media only screen and (max-width: ${p => p.theme.screen.smallest}) {
+   margin-right: 1.2rem;
+  }
 `;

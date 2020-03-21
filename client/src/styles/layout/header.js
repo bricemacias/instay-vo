@@ -41,8 +41,8 @@ export const UserNav = styled.nav`
     color: var(--color-grey-light-1);
   } */
 
-  @media only screen and (max-width: $bp-smallest) {
-    margin-top: 0.7rem;
+  @media only screen and (max-width: ${p => p.theme.screen.smallest}) {
+    order: 1;
   }
 `;
 
@@ -56,6 +56,10 @@ export const UserNavIconBox = styled.div`
 
   &:hover {
     fill: ${p => p.theme.colors.grey.light1};
+  }
+
+  @media only screen and (max-width: ${p => p.theme.screen.smallest}) {
+    display: none;
   }
 `;
 
@@ -86,6 +90,12 @@ export const UserNavNotification = styled.span`
   align-items: center;
 `;
 
+export const UserNavUser = styled.div`
+  @media only screen and (max-width: ${p => p.theme.screen.smallest}) {
+    order: 1;
+  }
+`;
+
 export const UserNavUserPhoto = styled.img`
   height: 3.75rem;
   border-radius: 50%;
@@ -97,5 +107,9 @@ export const UserNavUserName = styled.span`
 
   &:hover {
     color: ${p => p.theme.colors.primary.dark};
+  }
+
+  @media only screen and (max-width: ${p => p.theme.screen.smallest}) {
+    display: none;
   }
 `;

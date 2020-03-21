@@ -16,7 +16,13 @@ const Campaigns = () => {
         <svg style={{ width: '14rem', height: '14rem', margin: '0 auto' }}>
           <use xlinkHref={`${icons}#icon-list`} />
         </svg>
-        <span style={{ margin: '2rem auto', fontSize: '2.5rem' }}>
+        <span
+          style={{
+            textAlign: 'center',
+            margin: '2rem auto',
+            fontSize: '2.5rem'
+          }}
+        >
           Your campaigns is in construction
         </span>
       </div>

@@ -8,14 +8,16 @@ import { withRouter } from 'react-router-dom';
 import { withApollo } from 'react-apollo';
 
 import {
-  Header as HeaderLayout,
   UserNav,
   UserNavIconBox,
   UserNavIcon,
   UserNavNotification,
+  UserNavUser,
   UserNavUserPhoto,
   UserNavUserName
-} from '../../../styles/layout';
+} from '../../../styles/layout/header';
+
+import { Header as HeaderLayout } from '../../../styles/layout/layout';
 
 import Search from '../../../components/Search';
 import Burger from '../../../components/Burger';
@@ -46,10 +48,10 @@ const Header = ({ client, history, setOpen, open }) => {
             </UserNavIcon>
             <UserNavNotification>13</UserNavNotification>
           </UserNavIconBox>
-          <div onClick={handleSignOut}>
+          <UserNavUser onClick={handleSignOut}>
             <UserNavUserPhoto src={user} alt="User photo" />
             <UserNavUserName>Sarah</UserNavUserName>
-          </div>
+          </UserNavUser>
         </UserNav>
       </HeaderLayout>
     </>

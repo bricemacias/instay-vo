@@ -37,7 +37,7 @@ export const Header = styled.div`
   align-items: center;
 
   @media only screen and (max-width: ${p => p.theme.screen.smallest}) {
-    flex-wrap: wrap;
+    /* flex-wrap: wrap; */
     height: 10rem;
     align-content: space-between;
     justify-content: center;
@@ -59,7 +59,7 @@ export const Header = styled.div`
   z-index: 100;
 
   @media only screen and (max-width: ${p => p.theme.screen.smallest}) {
-    align-content: space-around;
+    align-content: space-between;
   }
 `;
 

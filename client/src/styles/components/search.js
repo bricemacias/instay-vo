@@ -23,8 +23,9 @@ export const Search = styled.form`
   }
 
   @media only screen and (max-width: ${p => p.theme.screen.smallest}) {
-    flex: 0 0 80%;
+    flex: 0 0 50%;
     margin: 1rem auto;
+    align-self: center;
   }
 
   &__input:focus + &__button {
