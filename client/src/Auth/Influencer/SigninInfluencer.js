@@ -114,6 +114,7 @@ const SigninInfluencer = props => {
                     <TextField
                       id="password"
                       label="Password"
+                      inputProps={{ type: 'password' }}
                       fullWidth
                       color="primary"
                       value={password}

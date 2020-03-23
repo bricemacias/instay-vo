@@ -249,6 +249,7 @@ const SignupHotelOwner = props => {
                     <TextField
                       id="password"
                       label="Password"
+                      inputProps={{ type: 'password' }}
                       fullWidth
                       color="primary"
                       value={password}
@@ -259,6 +260,7 @@ const SignupHotelOwner = props => {
                     <TextField
                       id="confirm-password"
                       label="Confirm Password"
+                      inputProps={{ type: 'password' }}
                       fullWidth
                       color="primary"
                       value={confirm}
