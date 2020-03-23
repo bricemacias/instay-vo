@@ -45,12 +45,14 @@ const fragmentMatcher = new IntrospectionFragmentMatcher({
 });
 
 const client = new ApolloClient({
-  // cache: new InMemoryCache(),
   cache: new InMemoryCache({ fragmentMatcher }),
 
-  // link: createHttpLink({ uri: 'http://localhost:4444/graphql' }),
-  uri: 'https://instay-v0.herokuapp.com/graphql',
-  // uri: 'http://localhost:4444/graphql',
+  // Production !
+  //uri: 'https://instay-v0.herokuapp.com/graphql',
+
+  // Development !
+  uri: 'http://localhost:4444/graphql',
+
   fetchOptions: {
     credentials: 'include'
   },

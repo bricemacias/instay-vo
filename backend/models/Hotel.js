@@ -12,7 +12,6 @@ const HotelSchema = new Schema({
     type: Schema.Types.ObjectId,
     ref: 'HotelOwner'
   },
-  // ownerId: { type: String, required: true },
   avatar: String,
   coverImages: [String],
   location: {

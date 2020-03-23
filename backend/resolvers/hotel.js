@@ -14,10 +14,6 @@ const Query = {
   //   const hotelOwner = await HotelOwner.findOne({
   //     _id: currentUser.id
   //   });
-  //   // .populate({
-  //   //   path: 'favorite',
-  //   //   model: 'Recipe'
-  //   // });
 
   //   return hotelOwner;
   // }

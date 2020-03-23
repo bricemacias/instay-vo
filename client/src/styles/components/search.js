@@ -31,10 +31,6 @@ export const Search = styled.form`
   &__input:focus + &__button {
     background-color: ${p => p.theme.colors.grey.light3};
   }
-
-  /* &--dark-mode {
-    margin-left: -3rem;
-  } */
 `;
 
 export const SearchInput = styled.input`

@@ -17,10 +17,6 @@ const Query = {
     const influencer = await Influencer.findOne({
       _id: currentUser.id
     });
-    // .populate({
-    //   path: 'favorite',
-    //   model: 'Recipe'
-    // });
 
     return influencer;
   }
