@@ -21,8 +21,15 @@ To go into production mode :
 - inside the ApolloClient constructor change the **uri** to the one in production mode (commented in the code)
 - same process if you want to go back to development mode
 
-All the paths have been left as they are to avoid any production issues (for example ../../../images/ instead of images/). You can avoid this by modifying NODE_PATH in webpack configuration. The application was created using npx create-react-app
+All the paths have been left as they are to avoid any production issues (for example **../../../images/** instead of **images/**). You can avoid this by modifying NODE_PATH in webpack configuration. The application was created using npx create-react-app
 
 ## Styles
 
 Everything is styled using styled-components. You will find the theme and GlobalStyles file, as well as specific redundant styles used in the application inside the styles folder
+
+## Test credentials
+
+- username: Instaytravel
+- password: 123456
+
+Those credentials work for Influencers as well as for Hotel Owners
