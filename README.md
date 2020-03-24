@@ -9,16 +9,16 @@ https://instay-v0.herokuapp.com
 ## Installing and running Locally
 
 - clone the repository
-- at the root of the folder type yarn install and then yarn run dev
-- in the backend folder, create a variables.env file, and put your own MONGO_URI for MongoDB database, and SECRET for jsonwebtoken
+- at the root of the folder type **yarn install** and then **yarn run dev**
+- in the backend folder, create a **variables.env** file, and put your own **MONGO_URI** for MongoDB database, and **SECRET** for jsonwebtoken
 
 ## Production mode
 
 To go into production mode :
 
 - go to the client folder
-- open the index.js file
-- inside the ApolloClient constructor change the uri to the one in production mode (commented in the code)
+- open the **index.js** file
+- inside the ApolloClient constructor change the **uri** to the one in production mode (commented in the code)
 - same process if you want to go back to development mode
 
 All the paths have been left as they are to avoid any production issues (for example ../../../images/ instead of images/). You can avoid this by modifying NODE_PATH in webpack configuration. The application was created using npx create-react-app
