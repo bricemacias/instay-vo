@@ -8,8 +8,8 @@ https://instay-v0.herokuapp.com
 
 ## Stack
 
-Frontend : React, Styled Components
-Backend : Node, Apollo, GraphQL, MongoDB 
+- Frontend : React, Styled Components
+- Backend : Node, Apollo, GraphQL, MongoDB 
 
 ## Installing and running Locally
 
