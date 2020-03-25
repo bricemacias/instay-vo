@@ -16,7 +16,7 @@ https://instay-v0.herokuapp.com
 
 To go into production mode :
 
-- go to the client folder
+- go to the **client/src** folder
 - open the **index.js** file
 - inside the ApolloClient constructor change the **uri** to the one in production mode (commented in the code)
 - same process if you want to go back to development mode
@@ -25,11 +25,11 @@ All the paths have been left as they are to avoid any production issues (for exa
 
 ## Styles
 
-Everything is styled using styled-components. You will find the theme and GlobalStyles file, as well as specific redundant styles used in the application inside the styles folder
+Everything is styled using **styled-components**. You will find the theme and GlobalStyles file, as well as specific redundant styles used in the application inside the **client/src/styles** folder
 
 ## Test credentials
 
-- username: Instaytravel
-- password: 123456
+- **username**: Instaytravel
+- **password**: 123456
 
 Those credentials work for Influencers as well as for Hotel Owners
